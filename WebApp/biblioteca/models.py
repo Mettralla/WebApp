@@ -16,3 +16,19 @@ class Autor(models.Model):
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
+    
+
+class Socio(models.Model):
+    """
+    Modelo que representa a un socio.
+
+    Este modelo se utiliza para almacenar información sobre los socios de la biblioteca.
+    Los socios tienen un nombre, apellido, una fecha de naciemiento, y se puede indicar si están activos o no.
+    """
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    fecha_nacimiento = models.DateField(auto_now=False) 
+    activo = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return f"{self.nombre} {self.apellido}"
