@@ -41,7 +41,7 @@ class Libro(models.Model):
     """
     titulo = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
-    isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
+    isbn = models.IntegerField() #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
     autor = models.CharField(max_length=100) 
     activo = models.BooleanField(default=True)
 
