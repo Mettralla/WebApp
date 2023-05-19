@@ -32,3 +32,19 @@ class Socio(models.Model):
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
+
+class Libro(models.Model):
+    """
+    Modelo que representa a un Libro.
+
+    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.
+    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.
+    """
+    titulo = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+    isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
+    autor = models.CharField(max_length=100) 
+    activo = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return f"Titulo: {self.titulo} - Autor: {self.autor} - ISBN: {self.isbn} - Descripcion: {self.descripcion} - Activo: {self.activo}"
