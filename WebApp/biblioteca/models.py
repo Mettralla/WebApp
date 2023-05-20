@@ -32,13 +32,14 @@ class Socio(models.Model):
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
 
-# class Libro(models.Model):
-#     """
-#     Modelo que representa a un Libro.
+class Libro(models.Model):
+    """
+    Modelo que representa a un Libro.
 
-#     Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.
-#     Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.
-#     """
+    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.
+    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.
+    """
+    pass
 #     titulo = models.CharField(max_length=100)
 #     descripcion = models.CharField(max_length=100)
 #     isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
@@ -57,4 +58,24 @@ class Empleado(models.Model):
     emp_activo= models.models.models.BooleanField(default=True)
 
 
+class Prestamo(models.Model):
+    """Modelo Prestamo, donde se registran los prestamos que se realizan a los socios"""
+    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas
+    pres_devolucion= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas
+    socio= models.ForeignKey(Socio,
+                             related_name='prestamos',
+                             on_delete=models.PROTECT) 
+    # Protect evita que se elimine un socio si existe un prestamo asiado a él
+    libro= models.ForeignKey(Libro,
+                             related_name='libros',
+                             on_delete=models.PROTECT)
+    # Protect evita que se elimine un Libro si existe un prestamo asiado a él
     
+    empleado= models.ForeignKey(Empleado,
+                                related_name='prestamos_realizados',
+                                on_delete=models.PROTECT)
+    
+    # Protect evita que se elimine un Empleado si existe un prestamo asiado a él
+    
+    # Para eliminar un socio o un Empleado, primero deberiamos eliminar todos los prestamos asociados 
+    # a ellos. Esto evitaria eliminar un presatamo activo al eliminar una clave foranea
