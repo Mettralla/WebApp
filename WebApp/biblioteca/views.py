@@ -37,3 +37,30 @@ def activar_empleado(request, id):
     # return redirect('lista_empleados')
     # Por ahora regresara un mensaje en formato JSON
     return JsonResponse(response_data)
+
+def desactivar_empleado(request,id:int):
+    """
+    Desactiva un registro de empleado
+
+    Args:
+        id (int): id del empleado a desactivar
+
+    Returns:
+        JSON: Mensaje de salida
+    """
+    empleado = get_object_or_404(Empleado, id=id)
+
+    if empleado.emp_activo:
+        empleado.emp_activo = False
+        empleado.save()
+        response_data = { 
+            "status": "success",
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ha sido desactivado con éxito."
+        }
+    else:
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya se encontraba desactivado."
+        }
+    response_data = dict()
+    return JsonResponse(response_data)
