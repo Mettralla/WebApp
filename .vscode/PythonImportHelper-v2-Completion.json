@@ -121,6 +121,14 @@
         "documentation": {}
     },
     {
+        "label": "Libro",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -251,7 +259,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)\nclass EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\"\n    search_fields = (\"emp_nombre\", \"emp_apellido\", \"emp_legajo\")",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nclass EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    search_fields = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
@@ -260,7 +268,25 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\"\n    search_fields = (\"emp_nombre\", \"emp_apellido\", \"emp_legajo\")\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"\nadmin.site.register(Empleado,EmpleadoAdmin)",
+        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    search_fields = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"\nclass LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"",
+        "detail": "WebApp.biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "LibroAdmin",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.admin",
+        "description": "WebApp.biblioteca.admin",
+        "peekOfCode": "class LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"\n    search_fields = \"lib_titulo\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\",\"lib_autor__nombre\",\"lib_autor__apellido\",\"lib_autor__nacionalidad\"\n    list_filter = \"lib_activo\",\"lib_autor__nombre\",\"lib_autor__apellido\",\"lib_autor__nacionalidad\"\nclass PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"",
+        "detail": "WebApp.biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "PrestamoAdmin",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.admin",
+        "description": "WebApp.biblioteca.admin",
+        "peekOfCode": "class PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"\n    model= Prestamo\n    list_display= 'pres_fecha','pres_devolucion','socio','libro','empleado'\n    search_fields= 'pres_fecha','pres_devolucion','socio__nombre','socio__apellido','libro__lib_titulo',\n    'libro__lib_isbn','libro__lib_autor__nombre','libro__lib_autor__apellido','libro__lib_autor__nacionalidad',\n    'empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\n    list_filter= 'pres_fecha','pres_devolucion','empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\nadmin.site.register(Empleado,EmpleadoAdmin)",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
