@@ -47,3 +47,14 @@ class Socio(models.Model):
 
 #     def __str__(self) -> str:
 #         return f"Titulo: {self.titulo} - Autor: {self.autor} - ISBN: {self.isbn} - Descripcion: {self.descripcion} - Activo: {self.activo}"
+
+class Empleado(models.Model):
+    """Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca
+    """
+    emp_nombre= models.CharField(max_length=100)
+    emp_apellido= models.CharField(max_length=50)
+    emp_legajo= models.models.IntegerField()
+    emp_activo= models.models.models.BooleanField(default=True)
+
+
+    
