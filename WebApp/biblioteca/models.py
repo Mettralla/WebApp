@@ -39,15 +39,18 @@ class Libro(models.Model):
     Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.
     Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.
     """
-    pass
-#     titulo = models.CharField(max_length=100)
-#     descripcion = models.CharField(max_length=100)
-#     isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
-#     autor = models.CharField(max_length=100) 
-#     activo = models.BooleanField(default=True)
+    lib_titulo = models.CharField(max_length=100)
+    lib_descripcion = models.CharField(max_length=100)
+    lib_isbn = models.IntegerField() #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo
+    lib_autor = models.ForeignKey(
+        Autor, 
+        related_name='autores',
+        on_delete=models.CASCADE,
+    ) 
+    lib_activo = models.BooleanField(default=True)
 
-#     def __str__(self) -> str:
-#         return f"Titulo: {self.titulo} - Autor: {self.autor} - ISBN: {self.isbn} - Descripcion: {self.descripcion} - Activo: {self.activo}"
+    def __str__(self) -> str:
+        return f"Titulo: {self.lib_titulo} - Autor: {self.lib_autor} - ISBN: {self.lib_isbn} - Descripcion: {self.lib_descripcion} - Activo: {self.lib_activo}"
 
 class Empleado(models.Model):
     """Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca
