@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from biblioteca.models import Autor
+from biblioteca.models import Autor,Libro
 
 class AutorAdmin(admin.ModelAdmin):
     model = Autor
@@ -9,6 +9,4 @@ class AutorAdmin(admin.ModelAdmin):
     list_filter = ("activo", "nacionalidad")
 
 admin.site.register(Autor, AutorAdmin)
-    
-
 

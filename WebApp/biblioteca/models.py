@@ -54,8 +54,8 @@ class Empleado(models.Model):
     """
     emp_nombre= models.CharField(max_length=100)
     emp_apellido= models.CharField(max_length=50)
-    emp_legajo= models.models.IntegerField()
-    emp_activo= models.models.models.BooleanField(default=True)
+    emp_legajo= models.IntegerField()
+    emp_activo= models.BooleanField(default=True)
 
 
 class Prestamo(models.Model):

@@ -32,11 +32,36 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
         "documentation": {}
     },
     {
@@ -57,6 +82,14 @@
     },
     {
         "label": "Autor",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Libro",
         "importPath": "biblioteca.models",
         "description": "biblioteca.models",
         "isExtraImport": true,
@@ -172,6 +205,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.migrations.0003_empleado_libro_prestamo",
+        "description": "WebApp.biblioteca.migrations.0003_empleado_libro_prestamo",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0002_socio'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Empleado',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('emp_nombre', models.CharField(max_length=100)),",
+        "detail": "WebApp.biblioteca.migrations.0003_empleado_libro_prestamo",
+        "documentation": {}
+    },
+    {
         "label": "AutorAdmin",
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
@@ -221,7 +263,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.models",
         "description": "WebApp.biblioteca.models",
-        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100)\n    emp_apellido= models.CharField(max_length=50)\n    emp_legajo= models.models.IntegerField()\n    emp_activo= models.models.models.BooleanField(default=True)\nclass Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas",
+        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100)\n    emp_apellido= models.CharField(max_length=50)\n    emp_legajo= models.IntegerField()\n    emp_activo= models.BooleanField(default=True)\nclass Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas",
         "detail": "WebApp.biblioteca.models",
         "documentation": {}
     },
