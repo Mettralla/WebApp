@@ -113,7 +113,7 @@
         "documentation": {}
     },
     {
-        "label": "Prestamo",
+        "label": "Libro",
         "importPath": "biblioteca.models",
         "description": "biblioteca.models",
         "isExtraImport": true,
@@ -121,7 +121,7 @@
         "documentation": {}
     },
     {
-        "label": "Libro",
+        "label": "Prestamo",
         "importPath": "biblioteca.models",
         "description": "biblioteca.models",
         "isExtraImport": true,
@@ -174,6 +174,30 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -259,7 +283,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nclass EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    search_fields = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)\n@admin.register(Empleado)\nclass EmpleadoAdmin(admin.ModelAdmin):\n    \"\"\"Clase que define la configuración personalizada del panel de administración para el modelo Empleado.\"\"\"\n    list_display = [\"emp_nombre\", \"emp_apellido\", \"emp_legajo\", \"emp_activo\"]",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
@@ -268,7 +292,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    search_fields = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\",\"emp_activo\"\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"\nclass LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"",
+        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    \"\"\"Clase que define la configuración personalizada del panel de administración para el modelo Empleado.\"\"\"\n    list_display = [\"emp_nombre\", \"emp_apellido\", \"emp_legajo\", \"emp_activo\"]\n    search_fields = [\"emp_nombre\", \"emp_apellido\"]\n    list_filter = [\"emp_activo\"]\nclass LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
@@ -286,7 +310,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"\n    model= Prestamo\n    list_display= 'pres_fecha','pres_devolucion','socio','libro','empleado'\n    search_fields= 'pres_fecha','pres_devolucion','socio__nombre','socio__apellido','libro__lib_titulo',\n    'libro__lib_isbn','libro__lib_autor__nombre','libro__lib_autor__apellido','libro__lib_autor__nacionalidad',\n    'empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\n    list_filter= 'pres_fecha','pres_devolucion','empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\nadmin.site.register(Empleado,EmpleadoAdmin)",
+        "peekOfCode": "class PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"\n    model= Prestamo\n    list_display= 'pres_fecha','pres_devolucion','socio','libro','empleado'\n    search_fields= 'pres_fecha','pres_devolucion','socio__nombre','socio__apellido','libro__lib_titulo',\n    'libro__lib_isbn','libro__lib_autor__nombre','libro__lib_autor__apellido','libro__lib_autor__nacionalidad',\n    'empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\n    list_filter= 'pres_fecha','pres_devolucion'\nadmin.site.register(Libro,LibroAdmin)",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
@@ -349,8 +373,17 @@
         "kind": 5,
         "importPath": "WebApp.biblioteca.urls",
         "description": "WebApp.biblioteca.urls",
-        "peekOfCode": "urlpatterns = [\n]",
+        "peekOfCode": "urlpatterns = [\n    path('empleados/activar/<int:id>/', views.activar_empleado, name='activar_empleado')\n]",
         "detail": "WebApp.biblioteca.urls",
+        "documentation": {}
+    },
+    {
+        "label": "activar_empleado",
+        "kind": 2,
+        "importPath": "WebApp.biblioteca.views",
+        "description": "WebApp.biblioteca.views",
+        "peekOfCode": "def activar_empleado(request, id):\n    \"\"\"\n    Activa un registro de Empleado según el ID proporcionado.\n    Parameters:\n        request (HttpRequest): La solicitud HTTP recibida.\n        id (int): El ID del empleado a activar.\n    Returns:\n        JsonResponse: Una respuesta JSON con un mensaje de éxito o información.\n    Raises:\n        Http404: Si no se encuentra un empleado con el ID especificado.",
+        "detail": "WebApp.biblioteca.views",
         "documentation": {}
     },
     {

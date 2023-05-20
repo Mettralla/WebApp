@@ -1,3 +1,39 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Empleado
+from django.http import JsonResponse
 
 # Create your views here.
+
+def activar_empleado(request, id):
+    """
+    Activa un registro de Empleado según el ID proporcionado.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): El ID del empleado a activar.
+
+    Returns:
+        JsonResponse: Una respuesta JSON con un mensaje de éxito o información.
+
+    Raises:
+        Http404: Si no se encuentra un empleado con el ID especificado.
+    """
+    empleado = get_object_or_404(Empleado, id=id)
+
+    if empleado.emp_activo:
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya esta activo."
+        }
+    else:
+        empleado.emp_activo = True
+        empleado.save()
+        response_data = { 
+            "status": "success",
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ha sido activado."
+        }
+
+    # Mas adelante redireccionaremos hacia la lista de empleados
+    # return redirect('lista_empleados')
+    # Por ahora regresara un mensaje en formato JSON
+    return JsonResponse(response_data)
