@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "Autor",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -164,6 +172,15 @@
         "documentation": {}
     },
     {
+        "label": "AutorAdmin",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.admin",
+        "description": "WebApp.biblioteca.admin",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)",
+        "detail": "WebApp.biblioteca.admin",
+        "documentation": {}
+    },
+    {
         "label": "BibliotecaConfig",
         "kind": 6,
         "importPath": "WebApp.biblioteca.apps",
@@ -191,11 +208,29 @@
         "documentation": {}
     },
     {
+        "label": "Libro",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.models",
+        "description": "WebApp.biblioteca.models",
+        "peekOfCode": "class Libro(models.Model):\n    \"\"\"\n    Modelo que representa a un Libro.\n    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.\n    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.\n    \"\"\"\n    pass\n#     titulo = models.CharField(max_length=100)\n#     descripcion = models.CharField(max_length=100)\n#     isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo",
+        "detail": "WebApp.biblioteca.models",
+        "documentation": {}
+    },
+    {
         "label": "Empleado",
         "kind": 6,
         "importPath": "WebApp.biblioteca.models",
         "description": "WebApp.biblioteca.models",
-        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100)\n    emp_apellido= models.CharField(max_length=50)\n    emp_legajo= models.models.IntegerField()\n    emp_activo= models.models.models.BooleanField(default=True)",
+        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100)\n    emp_apellido= models.CharField(max_length=50)\n    emp_legajo= models.models.IntegerField()\n    emp_activo= models.models.models.BooleanField(default=True)\nclass Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas",
+        "detail": "WebApp.biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Prestamo",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.models",
+        "description": "WebApp.biblioteca.models",
+        "peekOfCode": "class Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas\n    pres_devolucion= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas\n    socio= models.ForeignKey(Socio,\n                             related_name='prestamos',\n                             on_delete=models.PROTECT) \n    # Protect evita que se elimine un socio si existe un prestamo asiado a él\n    libro= models.ForeignKey(Libro,\n                             related_name='libros',",
         "detail": "WebApp.biblioteca.models",
         "documentation": {}
     },
