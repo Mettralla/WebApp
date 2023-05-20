@@ -20,17 +20,17 @@ def activar_empleado(request, id):
     """
     empleado = get_object_or_404(Empleado, id=id)
 
-    if empleado.activo:
+    if empleado.emp_activo:
         response_data = { 
             "status": "info",
-            "mensaje": f"El empleado {empleado.nombre} {empleado.apellido} ya esta activo."
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya esta activo."
         }
     else:
-        empleado.activo = True
+        empleado.emp_activo = True
         empleado.save()
         response_data = { 
             "status": "success",
-            "mensaje": f"El empleado {empleado.nombre} {empleado.apellido} ha sido activado."
+            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ha sido activado."
         }
 
     # Mas adelante redireccionaremos hacia la lista de empleados
