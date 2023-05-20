@@ -38,7 +38,7 @@ def activar_empleado(request, id):
     # Por ahora regresara un mensaje en formato JSON
     return JsonResponse(response_data)
 
-def desactivar_empleado(request,id:int):
+def desactivar_empleado(request,id):
     """
     Desactiva un registro de empleado
 
@@ -62,5 +62,7 @@ def desactivar_empleado(request,id:int):
             "status": "info",
             "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya se encontraba desactivado."
         }
-    response_data = dict()
+    
+    
+    
     return JsonResponse(response_data)
