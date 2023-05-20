@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "Autor",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -161,6 +169,15 @@
         "description": "WebApp.biblioteca.migrations.0002_socio",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Socio',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nombre', models.CharField(max_length=100)),",
         "detail": "WebApp.biblioteca.migrations.0002_socio",
+        "documentation": {}
+    },
+    {
+        "label": "AutorAdmin",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.admin",
+        "description": "WebApp.biblioteca.admin",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)",
+        "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
     {
