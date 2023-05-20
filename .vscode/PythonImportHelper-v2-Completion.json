@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -89,7 +105,15 @@
         "documentation": {}
     },
     {
-        "label": "Libro",
+        "label": "Empleado",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Prestamo",
         "importPath": "biblioteca.models",
         "description": "biblioteca.models",
         "isExtraImport": true,
@@ -214,11 +238,29 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "description": "WebApp.biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0003_empleado_libro_prestamo'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='libro',\n            name='lib_activo',\n            field=models.BooleanField(default=True),\n        ),",
+        "detail": "WebApp.biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "documentation": {}
+    },
+    {
         "label": "AutorAdmin",
         "kind": 6,
         "importPath": "WebApp.biblioteca.admin",
         "description": "WebApp.biblioteca.admin",
-        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)\nclass EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\"\n    search_fields = (\"emp_nombre\", \"emp_apellido\", \"emp_legajo\")",
+        "detail": "WebApp.biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "EmpleadoAdmin",
+        "kind": 6,
+        "importPath": "WebApp.biblioteca.admin",
+        "description": "WebApp.biblioteca.admin",
+        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    model= Empleado\n    list_display = \"emp_nombre\", \"emp_apellido\", \"emp_legajo\"\n    search_fields = (\"emp_nombre\", \"emp_apellido\", \"emp_legajo\")\n    list_filter = \"emp_nombre\", \"emp_apellido\",\"emp_legajo\", \"emp_activo\"\nadmin.site.register(Empleado,EmpleadoAdmin)",
         "detail": "WebApp.biblioteca.admin",
         "documentation": {}
     },
@@ -254,7 +296,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.models",
         "description": "WebApp.biblioteca.models",
-        "peekOfCode": "class Libro(models.Model):\n    \"\"\"\n    Modelo que representa a un Libro.\n    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.\n    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.\n    \"\"\"\n    pass\n#     titulo = models.CharField(max_length=100)\n#     descripcion = models.CharField(max_length=100)\n#     isbn = models.IntegerField(max_length=13) #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo",
+        "peekOfCode": "class Libro(models.Model):\n    \"\"\"\n    Modelo que representa a un Libro.\n    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.\n    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.\n    \"\"\"\n    lib_titulo = models.CharField(max_length=100)\n    lib_descripcion = models.CharField(max_length=100)\n    lib_isbn = models.IntegerField() #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo\n    lib_autor = models.ForeignKey(",
         "detail": "WebApp.biblioteca.models",
         "documentation": {}
     },
@@ -263,7 +305,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.models",
         "description": "WebApp.biblioteca.models",
-        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100)\n    emp_apellido= models.CharField(max_length=50)\n    emp_legajo= models.IntegerField()\n    emp_activo= models.BooleanField(default=True)\nclass Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas",
+        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100,verbose_name='Nombre')\n    emp_apellido= models.CharField(max_length=50,verbose_name='Apellido')\n    emp_legajo= models.IntegerField(verbose_name='Legajo')\n    emp_activo= models.BooleanField(default=True,verbose_name='Activo')\n    def __str__(self):\n        return f\"Empleado: {self.emp_nombre} {self.emp_apellido} Legajo: {self.emp_legajo}\"\nclass Prestamo(models.Model):",
         "detail": "WebApp.biblioteca.models",
         "documentation": {}
     },
@@ -272,7 +314,7 @@
         "kind": 6,
         "importPath": "WebApp.biblioteca.models",
         "description": "WebApp.biblioteca.models",
-        "peekOfCode": "class Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas\n    pres_devolucion= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas\n    socio= models.ForeignKey(Socio,\n                             related_name='prestamos',\n                             on_delete=models.PROTECT) \n    # Protect evita que se elimine un socio si existe un prestamo asiado a él\n    libro= models.ForeignKey(Libro,\n                             related_name='libros',",
+        "peekOfCode": "class Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField(verbose_name='Fecha de préstamo') # DateTimeField porque el plazo está expresado en horas\n    pres_devolucion= models.DateTimeField(verbose_name='Fecha de devolución',null=True) # DateTimeField porque el plazo está expresado en horas\n    socio= models.ForeignKey(Socio,\n                             related_name='prestamos',\n                             on_delete=models.PROTECT) \n    # Protect evita que se elimine un socio si existe un prestamo asiado a él\n    libro= models.ForeignKey(Libro,\n                             related_name='libros',",
         "detail": "WebApp.biblioteca.models",
         "documentation": {}
     },

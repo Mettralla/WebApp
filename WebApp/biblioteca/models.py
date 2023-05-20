@@ -55,16 +55,18 @@ class Libro(models.Model):
 class Empleado(models.Model):
     """Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca
     """
-    emp_nombre= models.CharField(max_length=100)
-    emp_apellido= models.CharField(max_length=50)
-    emp_legajo= models.IntegerField()
-    emp_activo= models.BooleanField(default=True)
-
+    emp_nombre= models.CharField(max_length=100,verbose_name='Nombre')
+    emp_apellido= models.CharField(max_length=50,verbose_name='Apellido')
+    emp_legajo= models.IntegerField(verbose_name='Legajo')
+    emp_activo= models.BooleanField(default=True,verbose_name='Activo')
+    
+    def __str__(self):
+        return f"Empleado: {self.emp_nombre} {self.emp_apellido} Legajo: {self.emp_legajo}"
 
 class Prestamo(models.Model):
     """Modelo Prestamo, donde se registran los prestamos que se realizan a los socios"""
-    pres_fecha= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas
-    pres_devolucion= models.DateTimeField() # DateTimeField porque el plazo está expresado en horas
+    pres_fecha= models.DateTimeField(verbose_name='Fecha de préstamo') # DateTimeField porque el plazo está expresado en horas
+    pres_devolucion= models.DateTimeField(verbose_name='Fecha de devolución',null=True) # DateTimeField porque el plazo está expresado en horas
     socio= models.ForeignKey(Socio,
                              related_name='prestamos',
                              on_delete=models.PROTECT) 
@@ -82,3 +84,12 @@ class Prestamo(models.Model):
     
     # Para eliminar un socio o un Empleado, primero deberiamos eliminar todos los prestamos asociados 
     # a ellos. Esto evitaria eliminar un presatamo activo al eliminar una clave foranea
+    
+    def __str__(self):
+        return f"""
+    Libro solicitado: {self.libro}
+    Fecha de prestado: {self.pres_fecha}
+    Devuelto: {self.pres_devuelto}
+    
+    Prestado a: {self.socio}
+    Autorizado por: {self.empleado}"""
