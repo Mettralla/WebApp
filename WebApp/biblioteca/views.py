@@ -82,5 +82,10 @@ def modificar_empleado(request, id):
 
     return render(request, 'biblioteca/modificar_empleado.html', context)
 
-
+def listado_empleados(request):
+    empleados = Empleado.objects.all()
+    context = {
+        "empleados" : empleados
+    }
+    return render(request, 'biblioteca/listado_empleados.html', context)
 
