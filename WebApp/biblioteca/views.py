@@ -105,22 +105,42 @@ def listado_empleados(request):
     }
     return render(request, 'biblioteca/listado_empleados.html', context)
 
-def agregar_empleado(request):
-    """
-    Agrega un nuevo empleado al registro.
+# def agregar_empleado(request):
+#     """
+#     Agrega un nuevo empleado al registro.
 
-    Parameters:
-        request (HttpRequest): La solicitud HTTP recibida.
+#     Parameters:
+#         request (HttpRequest): La solicitud HTTP recibida.
 
-    Returns:
-        HttpResponse: Una respuesta HTTP que renderiza el formulario para agregar un empleado o redirige a lista de empleados una vez creado el registro.
-    """
-    if request.method == 'POST':
-        form = EmpleadoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('listado_empleados')
-    else:
-        form = EmpleadoForm()
+#     Returns:
+#         HttpResponse: Una respuesta HTTP que renderiza el formulario para agregar un empleado o redirige a lista de empleados una vez creado el registro.
+#     """
+#     if request.method == 'POST':
+#         form = EmpleadoForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('listado_empleados')
+#     else:
+#         form = EmpleadoForm()
     
-    return render(request, 'biblioteca/agregar_empleado.html', { 'form': form })
+#     return render(request, 'biblioteca/agregar_empleado.html', { 'form': form })
+
+def agregar_empleado(request):
+    empleados = Empleado.objects.all()
+    context = {
+        'empleado':empleados
+    }
+
+    if request.POST:
+        emp_nombre = request.POST['nombre']
+        emp_apellido = request.POST['apellido']
+        emp_legajo = request.POST['legajo']
+        emp_activo = request.POST['activo']
+
+        Empleado.objects.create(
+            nombre = emp_nombre,
+			apellido = emp_apellido,
+            legajo = emp_legajo,
+            activo = emp_activo,
+        )
+    return render(request, 'biblioteca/agregar_empleado.html', context)

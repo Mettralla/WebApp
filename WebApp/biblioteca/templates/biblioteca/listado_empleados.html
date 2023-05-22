@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Empleado</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Legajo</th>
+			<th>Activo</th>
+        </tr>
+        
+        {% for empleado in empleados %}
+			<tr>
+				<td>{{empleado.emp_id}}</td>
+				<td>{{empleado.emp_nombre}}</td>
+				<td>{{empleado.emp_apellido}}</td>
+				<td>{{empleado.emp_legajo}}</td>
+				<td>{{empleado.emp_activo}}</td>
+			</tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

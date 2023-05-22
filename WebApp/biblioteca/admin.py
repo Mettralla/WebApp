@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from biblioteca.models import Autor, Empleado,Libro,Prestamo
+from biblioteca.models import Autor, Empleado,Libro,Prestamo, Socio
 
 class AutorAdmin(admin.ModelAdmin):
     model = Autor
@@ -36,6 +36,12 @@ class PrestamoAdmin(admin.ModelAdmin):
     'empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'
     list_filter= 'pres_fecha','pres_devolucion'
 
+class SocioAdmin(admin.ModelAdmin):
+    model = Socio
+    list_display = ("nombre", "apellido", "fecha_nacimiento", "activo")
+    search_fields = ("nombre", "apellido",)
+    list_filter = ("activo",)
 
+admin.site.register(Socio,SocioAdmin)
 admin.site.register(Libro,LibroAdmin)
 admin.site.register(Prestamo,PrestamoAdmin)
