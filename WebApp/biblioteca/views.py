@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Empleado
 from django.http import JsonResponse
+from .forms import EmpleadoForm
 
 # Create your views here.
 
@@ -89,3 +90,22 @@ def listado_empleados(request):
     }
     return render(request, 'biblioteca/listado_empleados.html', context)
 
+def agregar_empleado(request):
+    """
+    Agrega un nuevo empleado al registro.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: Una respuesta HTTP que renderiza el formulario para agregar un empleado o redirige a lista de empleados una vez creado el registro.
+    """
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listado_empleados')
+    else:
+        form = EmpleadoForm()
+    
+    return render(request, 'biblioteca/agregar_empleado.html', { 'form': form })
