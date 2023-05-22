@@ -69,6 +69,15 @@ def desactivar_empleado(request,id):
     return JsonResponse(response_data)
 
 def modificar_empleado(request, id):
+    """
+    Modifica el registro de empleado existente.
+
+    Args:
+        id (int): id del empleado a modificar.
+
+    Returns:
+        HttpResponse: Una respuesta HTTP que renderiza el formulario para modificar un registro de empleado.
+    """
     empleado = Empleado.objects.get(id=id)
 
     context = {
@@ -80,6 +89,12 @@ def modificar_empleado(request, id):
         emp_apellido = request.POST["apellido"]
         emp_legajo = request.POST["legajo"]
         emp_activo = request.POST["activo"]
+
+        empleado.emp_nombre = emp_nombre
+        empleado.emp_apellido = emp_apellido
+        empleado.emp_legajo = emp_legajo
+        empleado.emp_activo = emp_activo
+        empleado.save()
 
     return render(request, 'biblioteca/modificar_empleado.html', context)
 
