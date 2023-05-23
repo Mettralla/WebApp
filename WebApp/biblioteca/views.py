@@ -95,6 +95,7 @@ def modificar_empleado(request, id):
         empleado.emp_legajo = emp_legajo
         empleado.emp_activo = emp_activo
         empleado.save()
+        return redirect('listado_empleados')
 
     return render(request, 'biblioteca/modificar_empleado.html', context)
 
@@ -126,21 +127,16 @@ def listado_empleados(request):
 #     return render(request, 'biblioteca/agregar_empleado.html', { 'form': form })
 
 def agregar_empleado(request):
-    empleados = Empleado.objects.all()
-    context = {
-        'empleado':empleados
-    }
-
     if request.POST:
         emp_nombre = request.POST['nombre']
         emp_apellido = request.POST['apellido']
         emp_legajo = request.POST['legajo']
-        emp_activo = request.POST['activo']
 
         Empleado.objects.create(
-            nombre = emp_nombre,
-			apellido = emp_apellido,
-            legajo = emp_legajo,
-            activo = emp_activo,
+            emp_nombre = emp_nombre,
+			emp_apellido = emp_apellido,
+            emp_legajo = emp_legajo,
+            #activo = True,
         )
-    return render(request, 'biblioteca/agregar_empleado.html', context)
+        return redirect('listado_empleados')
+    return render(request, 'biblioteca/agregar_empleado.html')
