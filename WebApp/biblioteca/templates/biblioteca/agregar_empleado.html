@@ -8,21 +8,21 @@
 </head>
 <body>
     <form method="post">
-        {% csrf_token %}
+    {% csrf_token %}
 
         <div>
-            <label for="{{ form.emp_nombre.id_for_label }}">Nombre:</label>
-            {{ form.emp_nombre }}
+            <label for="nombre">Nombre:</label>
+            <input type="text" value="{{empleados.emp_nombre}}" name="nombre" >
         </div>
 
         <div>
-            <label for="{{ form.emp_apellido.id_for_label }}">Apellido:</label>
-            {{ form.emp_apellido }}
+            <label for="apellido">Apellido:</label>
+            <input type="text" value="{{empleados.emp_apellido}}" name="apellido">
         </div>
 
         <div>
-            <label for="{{ form.emp_legajo.id_for_label }}">Numero de Legajo:</label>
-            {{ form.emp_legajo }}
+            <label for="legajo">Legajo:</label>
+            <input type="text" value="{{empleados.emp_legajo}}" name="legajo">
         </div>
 
         <button type="submit">Guardar</button>
