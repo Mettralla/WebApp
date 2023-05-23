@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Empleado</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" value="{{empleado.emp_nombre}}" name="nombre">
+        
+        <br></br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" value="{{empleado.emp_apellido}}" name="apellido">
+        
+        <br></br>
+
+        <label for="legajo">Legajo:</label>
+        <input type="number" value="{{empleado.emp_legajo}}" name="legajo">
+        
+        <br></br>
+
+        <label for="activo">Activo:</label>
+        <input type="text" value="{{empleado.emp_activo}}" name="activo">
+        
+        <br></br>
+
+        <input type="submit" value="Actualizar">
+
+    </form>    
+    
+</body>
+</html>
