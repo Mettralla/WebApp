@@ -13,7 +13,8 @@ def activar_empleado(request, id):
         id (int): El ID del empleado a activar.
 
     Returns:
-        JsonResponse: Una respuesta JSON con un mensaje de éxito o información.
+        JsonResponse: Una respuesta JSON con información en caso de fallo.
+        Redirect: En caso de exito, activa el empleado y redirige al listado.
 
     Raises:
         Http404: Si no se encuentra un empleado con el ID especificado.
@@ -25,18 +26,12 @@ def activar_empleado(request, id):
             "status": "info",
             "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya esta activo."
         }
+        return JsonResponse(response_data)
     else:
         empleado.emp_activo = True
         empleado.save()
-        response_data = { 
-            "status": "success",
-            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ha sido activado."
-        }
+        return redirect('listado_empleados')
 
-    # Mas adelante redireccionaremos hacia la lista de empleados
-    # return redirect('lista_empleados')
-    # Por ahora regresara un mensaje en formato JSON
-    return JsonResponse(response_data)
 
 def desactivar_empleado(request,id):
     """
@@ -46,26 +41,21 @@ def desactivar_empleado(request,id):
         id (int): id del empleado a desactivar
 
     Returns:
-        JSON: Mensaje de salida
+        JsonResponse: Una respuesta JSON con información en caso de fallo.
+        Redirect: En caso de exito, desactiva el empleado y redirige al listado
     """
     empleado = get_object_or_404(Empleado, id=id)
 
     if empleado.emp_activo:
         empleado.emp_activo = False
         empleado.save()
-        response_data = { 
-            "status": "success",
-            "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ha sido desactivado con éxito."
-        }
+        return redirect('listado_empleados')
     else:
         response_data = { 
             "status": "info",
             "mensaje": f"El empleado {empleado.emp_nombre} {empleado.emp_apellido} ya se encontraba desactivado."
         }
-    
-    
-    
-    return JsonResponse(response_data)
+        return JsonResponse(response_data)
 
 def modificar_empleado(request, id):
     """
@@ -87,7 +77,7 @@ def modificar_empleado(request, id):
         emp_nombre = request.POST["nombre"]
         emp_apellido = request.POST["apellido"]
         emp_legajo = request.POST["legajo"]
-        emp_activo = request.POST["activo"]
+        emp_activo = True if request.POST.get("activo") else False
 
         empleado.emp_nombre = emp_nombre
         empleado.emp_apellido = emp_apellido
@@ -115,7 +105,6 @@ def agregar_empleado(request):
             emp_nombre = emp_nombre,
 			emp_apellido = emp_apellido,
             emp_legajo = emp_legajo,
-            #activo = True,
         )
         return redirect('listado_empleados')
     return render(request, 'biblioteca/agregar_empleado.html')

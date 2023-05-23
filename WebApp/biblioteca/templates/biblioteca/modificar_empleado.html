@@ -5,6 +5,9 @@
     <title>Modificar Empleado</title>
 </head>
 <body>
+    <a href="{% url 'listado_empleados' %}">Lista de empleados</a>
+    <br><br>
+
     <form method="post">
         {% csrf_token %}
         <label for="nombre">Nombre:</label>
@@ -14,17 +17,17 @@
 
         <label for="apellido">Apellido:</label>
         <input type="text" value="{{empleado.emp_apellido}}" name="apellido">
-        
+
         <br></br>
 
         <label for="legajo">Legajo:</label>
         <input type="number" value="{{empleado.emp_legajo}}" name="legajo">
-        
+
         <br></br>
 
         <label for="activo">Activo:</label>
-        <input type="text" value="{{empleado.emp_activo}}" name="activo">
-        
+        <input type="checkbox" name="activo" {% if empleado.emp_activo %}checked{% endif %}>
+
         <br></br>
 
         <input type="submit" value="Actualizar">

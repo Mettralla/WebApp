@@ -7,22 +7,35 @@
     <title>Listado de Empleado</title>
 </head>
 <body>
+    <a href="{% url 'crear_empleado' %}">Agregar empleado</a>
+    <br><br>
+
     <table border="1">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Legajo</th>
-			<th>Activo</th>
+			<th>Estado</th>
+            <th>Modificar</th>
         </tr>
         
         {% for empleado in empleados %}
 			<tr>
-				<td>{{empleado.emp_id}}</td>
+				<td>{{empleado.id}}</td>
 				<td>{{empleado.emp_nombre}}</td>
 				<td>{{empleado.emp_apellido}}</td>
 				<td>{{empleado.emp_legajo}}</td>
-				<td>{{empleado.emp_activo}}</td>
+				<td>
+                    {% if empleado.emp_activo %}
+                        <a href="{% url 'desactivar_empleado' empleado.id %}">Desactivar</a>
+                    {% else %}
+                        <a href="{% url 'activar_empleado' empleado.id %}">Activar</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'modificar_empleado' empleado.id %}">Editar</a>
+                </td>
 			</tr>
         {% endfor %}
     </table>
