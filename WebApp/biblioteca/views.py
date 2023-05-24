@@ -185,3 +185,4 @@ def listado_socios(request):
     """
     socios = Socio.objects.all()
     return render(request, 'biblioteca/socios/listado_socios.html', { "socios": socios })
+
