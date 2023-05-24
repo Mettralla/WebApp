@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Empleado, Autor
+from .models import Empleado, Autor, Socio
 from django.http import JsonResponse
 
 # Create your views here.
@@ -144,7 +144,7 @@ def modificar_autor(request, id):
 
         return redirect('listado_autores')
 
-    return render(request, 'biblioteca/modificar_autor.html', { "autor": autor })
+    return render(request, 'biblioteca/autores/modificar_autor.html', { "autor": autor })
 
 # ---------------------------------------------------------------------------
 # VIEWS DEL SOCIO
@@ -172,4 +172,16 @@ def agregar_socio(request):
         )
         return redirect('listado_autores')
 
-    return render(request, 'biblioteca/agregar_autor.html')
+    return render(request, 'biblioteca/socios/agregar_socio.html')
+
+
+def listado_socios(request):
+    """
+    Muestra el listado de todos los socios.
+
+    Returns:
+        HttpResponse: Una respuesta HTTP que renderiza el listado de socios.
+
+    """
+    socios = Socio.objects.all()
+    return render(request, 'biblioteca/socios/listado_socios.html', { "socios": socios })

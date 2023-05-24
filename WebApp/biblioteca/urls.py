@@ -10,5 +10,6 @@ urlpatterns = [
 
     path('autores/modificar/<int:id>', views.modificar_autor, name="modificar_autor"),
 
-    path('socios/nuevo', views.agregar_socio, name='crear_socio')
+    path('socios/nuevo', views.agregar_socio, name='crear_socio'),
+    path('socios/listado', views.listado_socios, name='listado_socios'),
 ]
