@@ -146,6 +146,34 @@ def modificar_autor(request, id):
 
     return render(request, 'biblioteca/autores/modificar_autor.html', { "autor": autor })
 
+def desactivar_autor(request,id):
+    """
+    Desactiva un registro de autor
+
+    Args:
+        id (int): id del autor a desactivar
+
+    Returns:
+        JsonResponse: Una respuesta JSON con información en caso de fallo.
+        Redirect: En caso de exito, desactiva el autor y redirige al listado
+    """
+    autor = get_object_or_404(Autor, id=id)
+
+    if autor.activo:
+        autor.activo = False
+        autor.save()
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El autor {autor.nombre} {autor.apellido} se ha desactivado."
+        }
+        return JsonResponse(response_data)
+    else:
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El autor {autor.nombre} {autor.apellido} ya se encontraba desactivado."
+        }
+        return JsonResponse(response_data)
+
 # ---------------------------------------------------------------------------
 # VIEWS DEL SOCIO
 # ---------------------------------------------------------------------------
