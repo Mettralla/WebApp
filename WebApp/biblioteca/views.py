@@ -145,3 +145,31 @@ def modificar_autor(request, id):
         return redirect('listado_autores')
 
     return render(request, 'biblioteca/modificar_autor.html', { "autor": autor })
+
+# ---------------------------------------------------------------------------
+# VIEWS DEL SOCIO
+# ---------------------------------------------------------------------------
+
+def agregar_socio(request):
+    """
+    Agrega un nuevo socio a la base de datos.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: Redirige al listado de socios o renderiza el formulario para agregar un socio.
+    """
+    if request.POST:
+        socio_nombre = request.POST['nombre']
+        socio_apellido = request.POST['apellido']
+        socio_nacimiento = request.POST['fecha_nacimiento']
+
+        Autor.objects.create(
+            nombre = socio_nombre,
+			apellido = socio_apellido,
+            fecha_nacimiento = socio_nacimiento,
+        )
+        return redirect('listado_autores')
+
+    return render(request, 'biblioteca/agregar_autor.html')
