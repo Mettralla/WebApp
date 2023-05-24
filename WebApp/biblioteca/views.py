@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Empleado
+from .models import Empleado, Autor
 from django.http import JsonResponse
 
 # Create your views here.
@@ -108,3 +108,40 @@ def agregar_empleado(request):
         )
         return redirect('listado_empleados')
     return render(request, 'biblioteca/agregar_empleado.html')
+
+# ---------------------------------------------------------------------------
+# VIEWS DEL AUTOR
+# ---------------------------------------------------------------------------
+
+def modificar_autor(request, id):
+    """
+    Modifica el registro de un autor existente.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): ID del autor a modificar.
+
+    Returns:
+        HttpResponse: Redirige al listado de autores o renderiza el formulario para modificar un autor.
+
+    Raises:
+        Http404: Si no se encuentra ningún autor con el ID proporcionado en la base de datos.
+    """
+    autor = get_object_or_404(Autor, id=id)
+
+    if request.POST:
+        autor_nombre = request.POST["nombre"]
+        autor_apellido = request.POST["apellido"]
+        autor_nacionalidad = request.POST["nacionalidad"]
+        autor_activo = True if request.POST.get("activo") else False
+
+        autor.nombre = autor_nombre
+        autor.apellido = autor_apellido
+        autor.nacionalidad = autor_nacionalidad
+        autor.activo = autor_activo
+
+        autor.save()
+
+        return redirect('listado_autores')
+
+    return render(request, 'biblioteca/modificar_autor.html', { "autor": autor })
