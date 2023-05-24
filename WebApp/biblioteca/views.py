@@ -173,6 +173,20 @@ def desactivar_autor(request,id):
             "mensaje": f"El autor {autor.nombre} {autor.apellido} ya se encontraba desactivado."
         }
         return JsonResponse(response_data)
+    
+def agregar_autor(request):
+    if request.POST:
+        nombre = request.POST['nombre']
+        apellido = request.POST['apellido']
+        nacionalidad = request.POST['nacionalidad']
+
+        Empleado.objects.create(
+            nombre = nombre,
+			apellido = apellido,
+            nacionalidad = nacionalidad,
+        )
+        return redirect('listado_autores')
+    return render(request, 'biblioteca/agregar_autor.html')    
 
 # ---------------------------------------------------------------------------
 # VIEWS DEL SOCIO
