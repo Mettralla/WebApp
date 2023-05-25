@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Empleado, Autor, Socio
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
@@ -146,6 +146,13 @@ def modificar_autor(request, id):
 
     return render(request, 'biblioteca/autores/modificar_autor.html', { "autor": autor })
 
+def activar_autor(request, id):
+    autor = Autor.objects.get(id=id)
+    autor.activo = True
+    autor.save()
+
+    return HttpResponse(f'El autor con ID {id} fue activado. ')
+
 def desactivar_autor(request,id):
     """
     Desactiva un registro de autor
@@ -228,3 +235,9 @@ def listado_socios(request):
     socios = Socio.objects.all()
     return render(request, 'biblioteca/socios/listado_socios.html', { "socios": socios })
 
+def desactivar_socio(request, id):
+    socio = Socio.objects.get(id=id)
+    socio.activo = False
+    socio.save()
+
+    return HttpResponse(f'El socio con ID {id} fue desactivado. ')
