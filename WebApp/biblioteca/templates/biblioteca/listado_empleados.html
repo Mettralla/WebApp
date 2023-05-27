@@ -28,9 +28,9 @@
 				<td>{{empleado.emp_legajo}}</td>
 				<td>
                     {% if empleado.emp_activo %}
-                        <a href="{% url 'desactivar_empleado' empleado.id %}">Desactivar</a>
+                        <a href="{% url 'desactivar_empleado' empleado.id %}">Activo</a>
                     {% else %}
-                        <a href="{% url 'activar_empleado' empleado.id %}">Activar</a>
+                        <a href="{% url 'activar_empleado' empleado.id %}">Inactivo</a>
                     {% endif %}
                 </td>
                 <td>

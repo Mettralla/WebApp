@@ -7,13 +7,17 @@
     <title>Listado de Autores</title>
 </head>
 <body>
+    <a href="{% url 'crear_autor' %}">Agregar autor</a>
+    <br><br>
+
     <table border="1">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Nacionalidad</th>
-			<th>Activo</th>
+			<th>Estado</th>
+            <th>Modificar</th>
         </tr>
         
         {% for autor in autores %}
@@ -22,7 +26,16 @@
 				<td>{{autor.nombre}}</td>
 				<td>{{autor.apellido}}</td>
 				<td>{{autor.nacionalidad}}</td>
-                <td>{{autor.activo}}</td>
+                <td>
+                    {% if autor.activo %}
+                        <a href="{% url 'desactivar_autor' autor.id %}">Activo</a>
+                    {% else %}
+                        <a href="{% url 'activar_autor' autor.id %}">Inactivo</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'modificar_autor' autor.id %}">Editar</a>
+                </td>
 			</tr>
         {% endfor %}
     </table>

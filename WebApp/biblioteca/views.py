@@ -142,7 +142,7 @@ def modificar_autor(request, id):
 
         autor.save()
 
-        #return redirect('listado_autores')
+        return redirect('listado_autores')
 
     return render(request, 'biblioteca/autores/modificar_autor.html', { "autor": autor })
 
@@ -151,7 +151,7 @@ def activar_autor(request, id):
     autor.activo = True
     autor.save()
 
-    return HttpResponse(f'El autor con ID {id} fue activado. ')
+    return redirect('listado_autores')
 
 def desactivar_autor(request,id):
     """
@@ -169,11 +169,7 @@ def desactivar_autor(request,id):
     if autor.activo:
         autor.activo = False
         autor.save()
-        response_data = { 
-            "status": "info",
-            "mensaje": f"El autor {autor.nombre} {autor.apellido} se ha desactivado."
-        }
-        return JsonResponse(response_data)
+        return redirect('listado_autores')
     else:
         response_data = { 
             "status": "info",
