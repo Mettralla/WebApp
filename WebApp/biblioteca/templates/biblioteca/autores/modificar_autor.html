@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Autor</title>
+</head>
+<body>
+    <a href="{% url 'listado_autores' %}">Lista de Autores</a>
+    <br><br>
+
+    <form method="post">
+    {% csrf_token %}
+
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value= '{{autor.nombre}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" value= '{{autor.apellido}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="nacionalidad">Nacionalidad:</label>
+            <input type="text" id="nacionalidad" name="nacionalidad" value= '{{autor.nacionalidad}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="activo">Activo:</label>
+            <input type="checkbox" name="activo" {% if autor.activo %}checked{% endif %}>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

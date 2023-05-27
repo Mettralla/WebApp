@@ -1,0 +1,746 @@
+[
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Autor",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Empleado",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Libro",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Prestamo",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Socio",
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "isExtraImport": true,
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "biblioteca.migrations.0001_initial",
+        "description": "biblioteca.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Autor',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nombre', models.CharField(max_length=100)),",
+        "detail": "biblioteca.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "biblioteca.migrations.0002_socio",
+        "description": "biblioteca.migrations.0002_socio",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Socio',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nombre', models.CharField(max_length=100)),",
+        "detail": "biblioteca.migrations.0002_socio",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "biblioteca.migrations.0003_empleado_libro_prestamo",
+        "description": "biblioteca.migrations.0003_empleado_libro_prestamo",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0002_socio'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Empleado',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('emp_nombre', models.CharField(max_length=100)),",
+        "detail": "biblioteca.migrations.0003_empleado_libro_prestamo",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "description": "biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('biblioteca', '0003_empleado_libro_prestamo'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='libro',\n            name='lib_activo',\n            field=models.BooleanField(default=True),\n        ),",
+        "detail": "biblioteca.migrations.0004_libro_lib_activo_libro_lib_autor_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "AutorAdmin",
+        "kind": 6,
+        "importPath": "biblioteca.admin",
+        "description": "biblioteca.admin",
+        "peekOfCode": "class AutorAdmin(admin.ModelAdmin):\n    model = Autor\n    list_display = (\"nombre\", \"apellido\", \"nacionalidad\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\")\n    list_filter = (\"activo\", \"nacionalidad\")\nadmin.site.register(Autor, AutorAdmin)\n@admin.register(Empleado)\nclass EmpleadoAdmin(admin.ModelAdmin):\n    \"\"\"Clase que define la configuración personalizada del panel de administración para el modelo Empleado.\"\"\"\n    list_display = [\"emp_nombre\", \"emp_apellido\", \"emp_legajo\", \"emp_activo\"]",
+        "detail": "biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "EmpleadoAdmin",
+        "kind": 6,
+        "importPath": "biblioteca.admin",
+        "description": "biblioteca.admin",
+        "peekOfCode": "class EmpleadoAdmin(admin.ModelAdmin):\n    \"\"\"Clase que define la configuración personalizada del panel de administración para el modelo Empleado.\"\"\"\n    list_display = [\"emp_nombre\", \"emp_apellido\", \"emp_legajo\", \"emp_activo\"]\n    search_fields = [\"emp_nombre\", \"emp_apellido\"]\n    list_filter = [\"emp_activo\"]\nclass LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"",
+        "detail": "biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "LibroAdmin",
+        "kind": 6,
+        "importPath": "biblioteca.admin",
+        "description": "biblioteca.admin",
+        "peekOfCode": "class LibroAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un libro en el admin\n    \"\"\"\n    model=Libro\n    list_display = \"lib_titulo\",\"lib_autor\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\"\n    search_fields = \"lib_titulo\",\"lib_descripcion\",\"lib_isbn\",\"lib_activo\",\"lib_autor__nombre\",\"lib_autor__apellido\",\"lib_autor__nacionalidad\"\n    list_filter = \"lib_activo\",\"lib_autor__nombre\",\"lib_autor__apellido\",\"lib_autor__nacionalidad\"\nclass PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"",
+        "detail": "biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "PrestamoAdmin",
+        "kind": 6,
+        "importPath": "biblioteca.admin",
+        "description": "biblioteca.admin",
+        "peekOfCode": "class PrestamoAdmin(admin.ModelAdmin):\n    \"\"\"Configura los parametros con los que se va a mostrar un Prestamo en el admin\n    \"\"\"\n    model= Prestamo\n    list_display= 'pres_fecha','pres_devolucion','socio','libro','empleado'\n    search_fields= 'pres_fecha','pres_devolucion','socio__nombre','socio__apellido','libro__lib_titulo',\n    'libro__lib_isbn','libro__lib_autor__nombre','libro__lib_autor__apellido','libro__lib_autor__nacionalidad',\n    'empleado__emp_nombre','empleado__emp_apellido','empleado__emp_legajo'\n    list_filter= 'pres_fecha','pres_devolucion'\nclass SocioAdmin(admin.ModelAdmin):",
+        "detail": "biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SocioAdmin",
+        "kind": 6,
+        "importPath": "biblioteca.admin",
+        "description": "biblioteca.admin",
+        "peekOfCode": "class SocioAdmin(admin.ModelAdmin):\n    model = Socio\n    list_display = (\"nombre\", \"apellido\", \"fecha_nacimiento\", \"activo\")\n    search_fields = (\"nombre\", \"apellido\",)\n    list_filter = (\"activo\",)\nadmin.site.register(Socio,SocioAdmin)\nadmin.site.register(Libro,LibroAdmin)\nadmin.site.register(Prestamo,PrestamoAdmin)",
+        "detail": "biblioteca.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BibliotecaConfig",
+        "kind": 6,
+        "importPath": "biblioteca.apps",
+        "description": "biblioteca.apps",
+        "peekOfCode": "class BibliotecaConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'biblioteca'",
+        "detail": "biblioteca.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Autor",
+        "kind": 6,
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "peekOfCode": "class Autor(models.Model):\n    \"\"\"\n    Modelo que representa a un autor.\n    Este modelo se utiliza para almacenar información sobre los autores de los libros.\n    Los autores tienen un nombre, apellido y nacionalidad, y se puede indicar si están activos o no.\n    \"\"\"\n    nombre = models.CharField(max_length=100)\n    apellido = models.CharField(max_length=100)\n    nacionalidad = models.CharField(max_length=50)\n    activo = models.BooleanField(default=True)",
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Socio",
+        "kind": 6,
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "peekOfCode": "class Socio(models.Model):\n    \"\"\"\n    Modelo que representa a un socio.\n    Este modelo se utiliza para almacenar información sobre los socios de la biblioteca.\n    Los socios tienen un nombre, apellido, una fecha de naciemiento, y se puede indicar si están activos o no.\n    \"\"\"\n    nombre = models.CharField(max_length=100)\n    apellido = models.CharField(max_length=100)\n    fecha_nacimiento = models.DateField(auto_now=False) \n    activo = models.BooleanField(default=True)",
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Libro",
+        "kind": 6,
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "peekOfCode": "class Libro(models.Model):\n    \"\"\"\n    Modelo que representa a un Libro.\n    Este modelo se utiliza para almacenar información sobre los libros de la biblioteca.\n    Los libros tienen un titulo, una descripcion, un isbn, un autor y se puede indicar si están activos o no.\n    \"\"\"\n    lib_titulo = models.CharField(max_length=100, verbose_name='Titulo')\n    lib_descripcion = models.CharField(max_length=100, verbose_name='Descripcion')\n    lib_isbn = models.IntegerField(verbose_name='ISBN') #El isbn es un standard numero de 13 cifras que identifica a cada libro en el mundo\n    lib_autor = models.ForeignKey(",
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Empleado",
+        "kind": 6,
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "peekOfCode": "class Empleado(models.Model):\n    \"\"\"Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca\n    \"\"\"\n    emp_nombre= models.CharField(max_length=100,verbose_name='Nombre')\n    emp_apellido= models.CharField(max_length=50,verbose_name='Apellido')\n    emp_legajo= models.IntegerField(verbose_name='Legajo')\n    emp_activo= models.BooleanField(default=True,verbose_name='Activo')\n    def __str__(self):\n        return f\"Empleado: {self.emp_nombre} {self.emp_apellido} Legajo: {self.emp_legajo}\"\nclass Prestamo(models.Model):",
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "Prestamo",
+        "kind": 6,
+        "importPath": "biblioteca.models",
+        "description": "biblioteca.models",
+        "peekOfCode": "class Prestamo(models.Model):\n    \"\"\"Modelo Prestamo, donde se registran los prestamos que se realizan a los socios\"\"\"\n    pres_fecha= models.DateTimeField(verbose_name='Fecha de préstamo') # DateTimeField porque el plazo está expresado en horas\n    pres_devolucion= models.DateTimeField(verbose_name='Fecha de devolución',null=True) # DateTimeField porque el plazo está expresado en horas\n    socio= models.ForeignKey(Socio,\n                             related_name='prestamos',\n                             on_delete=models.PROTECT) \n    # Protect evita que se elimine un socio si existe un prestamo asiado a él\n    libro= models.ForeignKey(Libro,\n                             related_name='libros',",
+        "detail": "biblioteca.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "biblioteca.urls",
+        "description": "biblioteca.urls",
+        "peekOfCode": "urlpatterns = [\n    path('empleados/activar/<int:id>/', views.activar_empleado, name='activar_empleado'),\n    path('empleados/desactivar/<int:id>', views.desactivar_empleado, name='desactivar_empleado'),\n    path('empleados/modificar/<int:id>', views.modificar_empleado, name='modificar_empleado'),\n    path('empleados/listado', views.listado_empleados, name='listado_empleados'),\n    path('empleados/crear', views.agregar_empleado, name='crear_empleado'),\n    path('autores/modificar/<int:id>', views.modificar_autor, name=\"modificar_autor\"),\n    path('autores/activar/<int:id>', views.activar_autor, name=\"activar_autor\"),\n    path('autores/desactivar/<int:id>', views.desactivar_autor, name=\"desactivar_autor\"),\n    path('autores/listado', views.listado_autores, name='listado_autores'),",
+        "detail": "biblioteca.urls",
+        "documentation": {}
+    },
+    {
+        "label": "activar_empleado",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def activar_empleado(request, id):\n    \"\"\"\n    Activa un registro de Empleado según el ID proporcionado.\n    Parameters:\n        request (HttpRequest): La solicitud HTTP recibida.\n        id (int): El ID del empleado a activar.\n    Returns:\n        JsonResponse: Una respuesta JSON con información en caso de fallo.\n        Redirect: En caso de exito, activa el empleado y redirige al listado.\n    Raises:",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "desactivar_empleado",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def desactivar_empleado(request,id):\n    \"\"\"\n    Desactiva un registro de empleado\n    Args:\n        id (int): id del empleado a desactivar\n    Returns:\n        JsonResponse: Una respuesta JSON con información en caso de fallo.\n        Redirect: En caso de exito, desactiva el empleado y redirige al listado\n    \"\"\"\n    empleado = get_object_or_404(Empleado, id=id)",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "modificar_empleado",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def modificar_empleado(request, id):\n    \"\"\"\n    Modifica el registro de empleado existente.\n    Args:\n        id (int): id del empleado a modificar.\n    Returns:\n        HttpResponse: Una respuesta HTTP que renderiza el formulario para modificar un registro de empleado.\n    \"\"\"\n    empleado = Empleado.objects.get(id=id)\n    context = {",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "listado_empleados",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def listado_empleados(request):\n    empleados = Empleado.objects.all()\n    context = {\n        \"empleados\" : empleados\n    }\n    return render(request, 'biblioteca/listado_empleados.html', context)\ndef agregar_empleado(request):\n    if request.POST:\n        emp_nombre = request.POST['nombre']\n        emp_apellido = request.POST['apellido']",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "agregar_empleado",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def agregar_empleado(request):\n    if request.POST:\n        emp_nombre = request.POST['nombre']\n        emp_apellido = request.POST['apellido']\n        emp_legajo = request.POST['legajo']\n        Empleado.objects.create(\n            emp_nombre = emp_nombre,\n\t\t\temp_apellido = emp_apellido,\n            emp_legajo = emp_legajo,\n        )",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "modificar_autor",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def modificar_autor(request, id):\n    \"\"\"\n    Modifica el registro de un autor existente.\n    Parameters:\n        request (HttpRequest): La solicitud HTTP recibida.\n        id (int): ID del autor a modificar.\n    Returns:\n        HttpResponse: Redirige al listado de autores o renderiza el formulario para modificar un autor.\n    Raises:\n        Http404: Si no se encuentra ningún autor con el ID proporcionado en la base de datos.",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "activar_autor",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def activar_autor(request, id):\n    autor = Autor.objects.get(id=id)\n    autor.activo = True\n    autor.save()\n    return HttpResponse(f'El autor con ID {id} fue activado. ')\ndef desactivar_autor(request,id):\n    \"\"\"\n    Desactiva un registro de autor\n    Args:\n        id (int): id del autor a desactivar",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "desactivar_autor",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def desactivar_autor(request,id):\n    \"\"\"\n    Desactiva un registro de autor\n    Args:\n        id (int): id del autor a desactivar\n    Returns:\n        JsonResponse: Una respuesta JSON con información en caso de fallo.\n        Redirect: En caso de exito, desactiva el autor y redirige al listado\n    \"\"\"\n    autor = get_object_or_404(Autor, id=id)",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "agregar_autor",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def agregar_autor(request):\n    if request.POST:\n        nombre = request.POST['nombre']\n        apellido = request.POST['apellido']\n        nacionalidad = request.POST['nacionalidad']\n        Empleado.objects.create(\n            nombre = nombre,\n\t\t\tapellido = apellido,\n            nacionalidad = nacionalidad,\n        )",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "listado_autores",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def listado_autores(request):\n    autores= Autor.objects.all()\n    context= {'autores':autores}\n    return render(request, 'biblioteca/autores/listado_autores.html', context)\n# ---------------------------------------------------------------------------\n# VIEWS DEL SOCIO\n# ---------------------------------------------------------------------------\ndef agregar_socio(request):\n    \"\"\"\n    Agrega un nuevo socio a la base de datos.",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "agregar_socio",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def agregar_socio(request):\n    \"\"\"\n    Agrega un nuevo socio a la base de datos.\n    Parameters:\n        request (HttpRequest): La solicitud HTTP recibida.\n    Returns:\n        HttpResponse: Redirige al listado de socios o renderiza el formulario para agregar un socio.\n    \"\"\"\n    if request.POST:\n        socio_nombre = request.POST['nombre']",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "listado_socios",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def listado_socios(request):\n    \"\"\"\n    Muestra el listado de todos los socios.\n    Returns:\n        HttpResponse: Una respuesta HTTP que renderiza el listado de socios.\n    \"\"\"\n    socios = Socio.objects.all()\n    return render(request, 'biblioteca/socios/listado_socios.html', { \"socios\": socios })\ndef desactivar_socio(request, id):\n    socio = Socio.objects.get(id=id)",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "desactivar_socio",
+        "kind": 2,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "def desactivar_socio(request, id):\n    socio = Socio.objects.get(id=id)\n    socio.activo = False\n    socio.save()\n    return HttpResponse(f'El socio con ID {id} fue desactivado. ')",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\temp_apellido",
+        "kind": 5,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "\t\t\temp_apellido = emp_apellido,\n            emp_legajo = emp_legajo,\n        )\n        return redirect('listado_empleados')\n    return render(request, 'biblioteca/agregar_empleado.html')\n# ---------------------------------------------------------------------------\n# VIEWS DEL AUTOR\n# ---------------------------------------------------------------------------\ndef modificar_autor(request, id):\n    \"\"\"",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tapellido",
+        "kind": 5,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "\t\t\tapellido = apellido,\n            nacionalidad = nacionalidad,\n        )\n        return redirect('listado_autores')\n    return render(request, 'biblioteca/agregar_autor.html')    \ndef listado_autores(request):\n    autores= Autor.objects.all()\n    context= {'autores':autores}\n    return render(request, 'biblioteca/autores/listado_autores.html', context)\n# ---------------------------------------------------------------------------",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tapellido",
+        "kind": 5,
+        "importPath": "biblioteca.views",
+        "description": "biblioteca.views",
+        "peekOfCode": "\t\t\tapellido = socio_apellido,\n            fecha_nacimiento = socio_nacimiento,\n        )\n        return redirect('listado_autores')\n    return render(request, 'biblioteca/socios/agregar_socio.html')\ndef listado_socios(request):\n    \"\"\"\n    Muestra el listado de todos los socios.\n    Returns:\n        HttpResponse: Una respuesta HTTP que renderiza el listado de socios.",
+        "detail": "biblioteca.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "WebApp.asgi",
+        "description": "WebApp.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "WebApp.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-vdadd2j^714e*1tp@9#2o$t1ignt52314jsu@ypx0^-f5=38&p'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-vdadd2j^714e*1tp@9#2o$t1ignt52314jsu@ypx0^-f5=38&p'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'biblioteca',",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'biblioteca',\n]\nMIDDLEWARE = [",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'WebApp.urls'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "ROOT_URLCONF = 'WebApp.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'WebApp.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'es'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "WebApp.settings",
+        "description": "WebApp.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "WebApp.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "WebApp.urls",
+        "description": "WebApp.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('biblioteca/', include(\"biblioteca.urls\"))\n]",
+        "detail": "WebApp.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "WebApp.wsgi",
+        "description": "WebApp.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "WebApp.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WebApp.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]

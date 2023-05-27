@@ -142,7 +142,7 @@ def modificar_autor(request, id):
 
         autor.save()
 
-        return redirect('listado_autores')
+        #return redirect('listado_autores')
 
     return render(request, 'biblioteca/autores/modificar_autor.html', { "autor": autor })
 
@@ -195,6 +195,12 @@ def agregar_autor(request):
         return redirect('listado_autores')
     return render(request, 'biblioteca/agregar_autor.html')    
 
+
+
+def listado_autores(request):
+    autores= Autor.objects.all()
+    context= {'autores':autores}
+    return render(request, 'biblioteca/autores/listado_autores.html', context)
 # ---------------------------------------------------------------------------
 # VIEWS DEL SOCIO
 # ---------------------------------------------------------------------------
