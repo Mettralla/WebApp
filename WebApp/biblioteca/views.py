@@ -222,12 +222,12 @@ def agregar_socio(request):
         socio_apellido = request.POST['apellido']
         socio_nacimiento = request.POST['fecha_nacimiento']
 
-        Autor.objects.create(
+        Socio.objects.create(
             nombre = socio_nombre,
 			apellido = socio_apellido,
-            fecha_nacimiento = socio_nacimiento,
+            fecha_nacimiento = socio_nacimiento
         )
-        return redirect('listado_autores')
+        return redirect('listado_socios')
 
     return render(request, 'biblioteca/socios/agregar_socio.html')
 
