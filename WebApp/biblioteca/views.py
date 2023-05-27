@@ -201,6 +201,8 @@ def listado_autores(request):
     autores= Autor.objects.all()
     context= {'autores':autores}
     return render(request, 'biblioteca/autores/listado_autores.html', context)
+
+
 # ---------------------------------------------------------------------------
 # VIEWS DEL SOCIO
 # ---------------------------------------------------------------------------
@@ -247,3 +249,9 @@ def desactivar_socio(request, id):
     socio.save()
 
     return HttpResponse(f'El socio con ID {id} fue desactivado. ')
+
+def activar_socio(request, id):
+    socio = Socio.objects.get(id=id)
+    socio.activo = True
+    socio.save()
+    return HttpResponse(f'El socio {socio.nombre} {socio.apellido} con ID: {id} fue activado.')

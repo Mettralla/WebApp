@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Socio</title>
+</head>
+<body>
+    <a href="{% url 'listado_socios' %}">Lista de Socios</a>
+    <br><br>
+
+    <form method="post">
+    {% csrf_token %}
+
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value='{{socio.nombre}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" value='{{socio.apellido}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value= '{{socio.fecha_nacimiento}}'>
+        </div>
+        <br>
+
+        <div>
+            <label for="activo">Activo:</label>
+            <input type="checkbox" name="activo" {% if socio.activo %}checked{% endif %}>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
