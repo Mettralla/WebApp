@@ -187,13 +187,13 @@ def agregar_autor(request):
         apellido = request.POST['apellido']
         nacionalidad = request.POST['nacionalidad']
 
-        Empleado.objects.create(
+        Autor.objects.create(
             nombre = nombre,
 			apellido = apellido,
             nacionalidad = nacionalidad,
         )
         return redirect('listado_autores')
-    return render(request, 'biblioteca/agregar_autor.html')    
+    return render(request, 'biblioteca/autores/agregar_autor.html')    
 
 
 
