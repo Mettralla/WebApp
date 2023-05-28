@@ -251,3 +251,36 @@ def activar_socio(request, id):
     socio.activo = True
     socio.save()
     return HttpResponse(f'El socio {socio.nombre} {socio.apellido} con ID: {id} fue activado.')
+
+def modificar_socio(request, id):
+    """
+    Modifica/Actualiza el registro de un socio existente.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): ID del SOCIO a modificar.
+
+    Returns:
+        HttpResponse: Redirige al listado de socios o renderiza el formulario para modificar un socio.
+
+    Raises:
+        Http404: Si no se encuentra ningún socio con el ID proporcionado en la base de datos.
+    """
+    socio = get_object_or_404(Socio, id=id)
+
+    if request.POST:
+        socio_nombre = request.POST["nombre"]
+        socio_apellido = request.POST["apellido"]
+        socio_nacionalidad = request.POST["nacionalidad"]
+        socio_activo = True if request.POST.get("activo") else False
+
+        socio.nombre = socio_nombre
+        socio.apellido = socio_apellido
+        socio.nacionalidad = socio_nacionalidad
+        socio.activo = socio_activo
+
+        socio.save()
+
+        return redirect('listado_socios')
+
+    return render(request, 'biblioteca/autores/modificar_socio.html', { "socio": socio })
