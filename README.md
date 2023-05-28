@@ -1,39 +1,41 @@
-## Biblioteca App
-Caso de negocio N° 2
+<p align="center">
+<img src=https://drive.google.com/uc?export=view&id=1XOqik5P0CnPdmt452a-BoI_Jj6cTYeL1 alt="Banner">
+</p>
+<h3 align="center">Caso de Negocio N°2 - Biblioteca App</h3>
 
-### Situación inicial 📋
-Como parte de un equipo de desarrolladores, recibimos el pedido del departamento de Producto para desarrollar una aplicación para dar
-funcionalidades a una biblioteca, la cual permitirá a sus usuarios  consultar el xcatálogo de libros, y un listado de los préstamos de libros realizados a sus socios. Nuestro líder técnico ya cuenta con los requerimientos desagregados en
-un backlog de tareas listo para que comencemos la etapa de desarrollo
+---
 
-### Nuestro objetivo 🎯
+<p align="center"> Como parte de un equipo de desarrolladores, recibimos el pedido del departamento de Producto para desarrollar una aplicación para dar funcionalidades a una biblioteca, la cual permitirá a sus usuarios consultar el catálogo de libros, y un listado de los préstamos de libros realizados a sus socios.
+<br> 
+</p>
+
+---
+
+## 📝 Tabla de Contenidos
+- [Consigna](#problem_statement)
+    - [Objetivo](#our_goals)
+    - [Requerimientos Generales](#requirements)
+    - [Modelo](#database)
+    - [Requerimientos Tecnicos](#tech_req)
+- [Instalación/Ejecucion](#getting_started)
+- [Vista Previa](#preview)
+- [Tecnologias](#tech_stack)
+- [Autor](#authors)
+
+## 🧐 Consigna <a name = "problem_statement"></a>
+
+### Nuestro objetivo 🎯 <a name = "our_goals"></a>
 El objetivo consiste en desarrollar una aplicación web que permita registrar los libros que la biblioteca ofrece, registrar empleados y socios, realizar el préstamo de algún libro a un socio y visualizar diferentes tipos de listados. Por último, se pide la posibilidad de acceder a la información de los servicios a través de un endpoint en donde se podrán consultar todos los libros disponibles y poder filtrarlos por el id en donde se visualizará el detalle completo del mismo.
 
-### Requerimientos 
-La **aplicación de la biblioteca** deberá cumplir con una serie de características y requerimientos técnicos para garantizar la calidad y funcionalidad de la misma
+### Requerimiento general 📖 <a name = "requirements"></a>
 
-### Requerimiento general
+El requerimiento general que será transversal a todo el desarrollo del será la implementación de todas las funcionalidades básicas para poder **registrar los libros, socios y empleados, poder listarlos y almacenar toda esa información en la base de datos**, las cuales son:
 
-El requerimiento general que será transversal a todo el desarrollo del será la implementación de todas las funcionalidades básicas para poder **registrar los libros, socios y empleados, poder listarlos y almacenar toda esa información
-en la base de datos**, las cuales son:
-
-- CRUD (crear, leer, actualizar y eliminar) de autores, más el listado
-correspondiente. En el listado se deben visualizar solo los autores activos, y
-se debe ofrecer la posibilidad de restaurar registros no activos.
-- CRUD (crear, leer, actualizar y eliminar) de libros, más el listado
-correspondiente. En el listado se deben visualizar solo los libros activos, y
-se debe ofrecer la posibilidad de restaurar registros no activos. Al
-crear/actualizar un registro, solo se debe permitir seleccionar autores
-activos (relación libro-autor).
-- CRUD (crear, leer, actualizar y eliminar) de socios, más el listado
-correspondiente. En el listado se deben visualizar solo los socios activos, y
-se debe ofrecer la posibilidad de restaurar registros no activos.
-- CRUD (crear, leer, actualizar y eliminar) de empleados, más el listado
-correspondiente. En el listado se deben visualizar solo los empleados
-activos, y se debe ofrecer la posibilidad de restaurar registros no activos.
-- CRUD (crear, leer, actualizar y eliminar) de préstamos de libros, más el
-listado correspondiente. Al crear/actualizar un registro, solo se debe
-permitir seleccionar libros/socios/empleados activos.
+- CRUD de autores, más el listado correspondiente. En el listado se deben visualizar solo los autores activos, y se debe ofrecer la posibilidad de restaurar registros no activos.
+- CRUD de libros, más el listado correspondiente. En el listado se deben visualizar solo los libros activos, y se debe ofrecer la posibilidad de restaurar registros no activos. Al crear/actualizar un registro, solo se debe permitir seleccionar autores activos (relación libro-autor).
+- CRUD de socios, más el listado correspondiente. En el listado se deben visualizar solo los socios activos, y se debe ofrecer la posibilidad de restaurar registros no activos.
+- CRUD de empleados, más el listado correspondiente. En el listado se deben visualizar solo los empleados activos, y se debe ofrecer la posibilidad de restaurar registros no activos.
+- CRUD de préstamos de libros, más el listado correspondiente. Al crear/actualizar un registro, solo se debe permitir seleccionar libros/socios/empleados activos.
 - API para visualizar todos los libros que la empresa ofrece:
 https://localhost:8000/api/libros
 - API para visualizar el detalle de un libro:
@@ -42,43 +44,15 @@ https://localhost:8000/api/libros/<libro_id>
 - En el Admin permitir realizar búsquedas por nombre de Libro
 - En el Admin permitir realizar búsquedas por nombre y apellido para Socio,
 Autor y Empleado.
-- Documentar el proyecto (archivo README) indicando todo lo que hay que
-hacer para ponerlo en marcha, además de todas las funcionalidades
-disponibles.
+- Documentar el proyecto (archivo README) indicando todo lo que hay que hacer para ponerlo en marcha, además de todas las funcionalidades disponibles.
 
 
-### Requerimientos específicos
-El modelo de Autor debe contar con los siguientes campos:
-- nombre (texto)
-- apellido (texto)
-- nacionalidad (texto)
-- activo (boolean, por default True)
+### Modelo 💾 <a name = "database"></a>
+<br>
 
-El modelo de Libro debe contar con los siguientes campos:
-- título (texto)
-- descripción (texto largo)
-- ISBN (integer) [Estandard número de 13 cifras que identifica a cada libro en el mundo]
-- autor (relación con el modelo de Autor)
-- activo (boolean, por default True)
-El modelo de Socio debe contar con los siguientes campos:
-- nombre (texto)
-- apellido (texto)
-- fecha nacimiento (date)
-- activo (boolean, por default True)
-El modelo de Empleado debe contar con los siguientes campos:
-- nombre (texto)● apellido (texto)
-- numero legajo (integer)
-- activo (boolean, por default True)
-Cuando se realiza el préstamo de algún libro, se debe registrar:
-- la fecha en que se realiza el préstamo
-- la fecha en que debe ser devuelto (48 hs luego del préstamo)
-- el socio a quien se le presta
-- el libro solicitado
-- y la persona que otorga el préstamo (que es un empleado)
+![modelo](https://drive.google.com/uc?export=view&id=15WpnYT1KBapNUwiOu8AQeY1SiPOBGN91)
 
-
-
-### Requerimientos técnicos:
+### Requerimientos técnicos ⛏️ <a name = "tech_req"></a>
 - Framework Django para el desarrollo de la aplicación
 - Bases de datos SQLite para almacenar datos
 - Utilización del ORM de Django
@@ -87,7 +61,64 @@ Cuando se realiza el préstamo de algún libro, se debe registrar:
 - Utilizar GitHub como repositorio del código del proyecto
 - Documentación del proyecto
 
-> Integrantes:
+## 🏁 Instalación/Ejecución <a name = "getting_started"></a>
+
+Crear entorno virtual
+
+```bash
+python -m venv env
+```
+
+Activar entorno
+
+```bash
+env\Scripts\activate.bat
+```
+
+Clonar el repositorio
+
+```bash
+git clone git@github.com:Mettralla/WebApp.git
+```
+
+Ir al directorio del proyecto
+
+```bash
+cd WebApp
+```
+
+Instalar dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+Realizar migraciones
+
+```bash
+python manage.py migrate
+```
+
+Iniciar server
+
+```bash
+python manage.py runserver
+```
+
+## 🎈 Vista Previa <a name="preview"></a>
+
+Placeholder
+
+## ⛏️ Tecnologias <a name = "tech_stack"></a>
+
+- Django 4.2.1
+- asgiref 3.6.0
+- Jinja2 3.1.2
+- MarkupSafe 2.1.2
+- sqlparse 0.4.4
+- tzdata 2023.3
+
+## ✍️ Autores <a name = "authors"></a>
 - [Daniel Tejerina](https://github.com/Mettralla)
 - [Hernan Fresco](https://github.com/frescoh)
 - [Mercedes del Pilar Toledo](https://github.com/PilarToledoMT)
