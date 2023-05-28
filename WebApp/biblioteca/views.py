@@ -283,4 +283,4 @@ def modificar_socio(request, id):
 
         return redirect('listado_socios')
 
-    return render(request, 'biblioteca/autores/modificar_socio.html', { "socio": socio })
+    return render(request, 'biblioteca/socios/modificar_socio.html', { "socio": socio })
