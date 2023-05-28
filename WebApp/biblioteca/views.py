@@ -271,12 +271,12 @@ def modificar_socio(request, id):
     if request.POST:
         socio_nombre = request.POST["nombre"]
         socio_apellido = request.POST["apellido"]
-        socio_nacionalidad = request.POST["nacionalidad"]
+        socio_fecha_nacimiento = request.POST["fecha_nacimiento"]
         socio_activo = True if request.POST.get("activo") else False
 
         socio.nombre = socio_nombre
         socio.apellido = socio_apellido
-        socio.nacionalidad = socio_nacionalidad
+        socio.fecha_nacimiento = socio_fecha_nacimiento
         socio.activo = socio_activo
 
         socio.save()
