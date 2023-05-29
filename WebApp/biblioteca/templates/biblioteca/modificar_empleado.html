@@ -11,17 +11,17 @@
     <form method="post">
         {% csrf_token %}
         <label for="nombre">Nombre:</label>
-        <input type="text" value="{{empleado.emp_nombre}}" name="nombre">
+        <input type="text" value="{{empleado.emp_nombre}}" name="nombre" required="" pattern="[a-zA-Z, ]+">
         
         <br></br>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" value="{{empleado.emp_apellido}}" name="apellido">
+        <input type="text" value="{{empleado.emp_apellido}}" name="apellido" required="" pattern="[a-zA-Z, ]+">
 
         <br></br>
 
         <label for="legajo">Legajo:</label>
-        <input type="number" value="{{empleado.emp_legajo}}" name="legajo">
+        <input type="number" value="{{empleado.emp_legajo}}" name="legajo" required="" pattern="[0-9]*">
 
         <br></br>
 

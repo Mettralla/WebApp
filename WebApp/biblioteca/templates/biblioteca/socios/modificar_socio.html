@@ -15,13 +15,13 @@
 
         <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value='{{socio.nombre}}'>
+            <input type="text" id="nombre" name="nombre" value='{{socio.nombre}}' required="" pattern="[a-zA-Z, ]+">
         </div>
         <br>
 
         <div>
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" value='{{socio.apellido}}'>
+            <input type="text" id="apellido" name="apellido" value='{{socio.apellido}}' required="" pattern="[a-zA-Z, ]+">
         </div>
         <br>
 
@@ -36,7 +36,7 @@
             <input type="checkbox" name="activo" {% if socio.activo %}checked{% endif %}>
         </div>
 
-        <button type="submit">Guardar</button>
+        <button type="submit">Actualizar</button>
     </form>
 </body>
 </html>
