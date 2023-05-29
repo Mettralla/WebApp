@@ -244,13 +244,16 @@ def desactivar_socio(request, id):
     socio.activo = False
     socio.save()
 
-    return HttpResponse(f'El socio con ID {id} fue desactivado. ')
+    #return HttpResponse(f'El socio con ID {id} fue desactivado. ')
+    return redirect('listado_socios')
 
 def activar_socio(request, id):
     socio = Socio.objects.get(id=id)
     socio.activo = True
     socio.save()
-    return HttpResponse(f'El socio {socio.nombre} {socio.apellido} con ID: {id} fue activado.')
+
+    #return HttpResponse(f'El socio {socio.nombre} {socio.apellido} con ID: {id} fue activado.')
+    return redirect('listado_socios')
 
 def modificar_socio(request, id):
     """
