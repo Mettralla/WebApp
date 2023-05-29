@@ -25,7 +25,7 @@
 				<td>{{socio.id}}</td>
 				<td>{{socio.nombre}}</td>
 				<td>{{socio.apellido}}</td>
-				<td>{{socio.fecha_nacimiento}}</td>
+				<td>{{socio.fecha_nacimiento | date:"d/m/Y"}}</td>
                 <td>
                     {% if socio.activo %}
                         <a href="{% url 'desactivar_socio' socio.id %}">Activo</a>

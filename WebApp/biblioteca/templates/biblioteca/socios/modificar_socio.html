@@ -27,7 +27,7 @@
 
         <div>
             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value= '{{socio.fecha_nacimiento}}'>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value= '{{socio.fecha_nacimiento | date:"Y-m-d"}}'>
         </div>
         <br>
 
