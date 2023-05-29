@@ -7,13 +7,17 @@
     <title>Listado de Socios</title>
 </head>
 <body>
+    <a href="{% url 'crear_socio' %}">Agregar Socio</a>
+    <br><br>
+
     <table border="1">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Fecha de Nacimiento</th>
-			<th>Activo</th>
+			<th>Estado</th>
+            <th>Modificar</th>
         </tr>
         
         {% for socio in socios %}
@@ -22,7 +26,16 @@
 				<td>{{socio.nombre}}</td>
 				<td>{{socio.apellido}}</td>
 				<td>{{socio.fecha_nacimiento}}</td>
-                <td>{{socio.activo}}</td>
+                <td>
+                    {% if socio.activo %}
+                        <a href="{% url 'desactivar_socio' socio.id %}">Activo</a>
+                    {% else %}
+                        <a href="{% url 'activar_socio' socio.id %}">Inactivo</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'modificar_socio' socio.id %}">Editar</a>
+                </td>
 			</tr>
         {% endfor %}
     </table>
