@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Empleado, Autor, Socio
+from biblioteca.models import Empleado, Autor, Socio
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
