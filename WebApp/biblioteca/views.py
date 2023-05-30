@@ -86,14 +86,14 @@ def modificar_empleado(request, id):
         empleado.save()
         return redirect('listado_empleados')
 
-    return render(request, 'biblioteca/modificar_empleado.html', context)
+    return render(request, 'biblioteca/empleados/modificar_empleado.html', context)
 
 def listado_empleados(request):
     empleados = Empleado.objects.all()
     context = {
         "empleados" : empleados
     }
-    return render(request, 'biblioteca/listado_empleados.html', context)
+    return render(request, 'biblioteca/empleados/listado_empleados.html', context)
 
 def agregar_empleado(request):
     if request.POST:
@@ -107,7 +107,7 @@ def agregar_empleado(request):
             emp_legajo = emp_legajo,
         )
         return redirect('listado_empleados')
-    return render(request, 'biblioteca/agregar_empleado.html')
+    return render(request, 'biblioteca/empleados/agregar_empleado.html')
 
 # ---------------------------------------------------------------------------
 # VIEWS DEL AUTOR
