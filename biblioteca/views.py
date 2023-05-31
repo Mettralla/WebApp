@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from biblioteca.models import Empleado, Autor, Socio
+from biblioteca.models import Empleado, Autor, Socio, Libro
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
@@ -292,7 +292,37 @@ def modificar_socio(request, id):
 # VIEWS DE LIBROS
 # ---------------------------------------------------------------------------
 
+def activar_libro(request, id):
+    """
+    Activa un registro de un Libro según el ID proporcionado.
 
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): El ID del LIBRO a activar.
+
+    Returns:
+        JsonResponse: Una respuesta JSON con información en caso de fallo.
+        
+    Raises:
+        Http404: Si no se encuentra un Libro con el ID especificado.
+    """
+    libro = get_object_or_404(Libro, id=id)
+
+    if libro.lib_activo:
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El libro {libro.lib_titulo} ya esta activo."
+        }
+        return JsonResponse(response_data)
+    else:
+        libro.lib_activo = True
+        libro.save()
+        #return redirect('listado_libros')  ==> Posteriormente se implementara este redireccionamiento
+        response_data = { 
+            "status": "info",
+            "mensaje": f"El libro {libro.lib_titulo} se activó con éxito."
+        }
+        return JsonResponse(response_data)
 
 
 # ---------------------------------------------------------------------------
