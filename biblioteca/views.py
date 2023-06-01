@@ -463,7 +463,7 @@ def eliminar_prestamo(request, prestamo_id):
     prestamo = Prestamo.objects.get(id=prestamo_id)
     prestamo.delete()
 
-    return HttpResponse(f'El producto con ID {prestamo_id} fue eliminado.')
+    return HttpResponse(f'El prestamo con ID {prestamo_id} fue eliminado.')
 
 def listado_prestamos(request):
     """
