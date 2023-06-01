@@ -297,7 +297,7 @@ def listado_libros(request):
     libros= Libro.objects.all()
     context= {'libros':libros}
     
-    #return render(request, 'biblioteca/libros/listado_libros.html', context) ==> Posteriormente renderizará este HTML
+    return render(request, 'biblioteca/libros/listado_libros.html', context)
 
 def activar_libro(request, id):
     """
@@ -314,22 +314,9 @@ def activar_libro(request, id):
         Http404: Si no se encuentra un Libro con el ID especificado.
     """
     libro = get_object_or_404(Libro, id=id)
-
-    if libro.lib_activo:
-        response_data = { 
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} ya esta activo."
-        }
-        return JsonResponse(response_data)
-    else:
-        libro.lib_activo = True
-        libro.save()
-        #return redirect('listado_libros')  ==> Posteriormente se implementara este redireccionamiento
-        response_data = { 
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} se activó con éxito."
-        }
-        return JsonResponse(response_data)
+    libro.lib_activo = True
+    libro.save()
+    return redirect('listado_libros')
 
 def desactivar_libro(request, id):
     """
@@ -346,21 +333,10 @@ def desactivar_libro(request, id):
         Http404: Si no se encuentra un Libro con el ID especificado.
     """
     libro = get_object_or_404(Libro, id = id)
+    libro.lib_activo = False
+    libro.save()
+    return redirect('listado_libros')
 
-    if libro.lib_activo:
-        libro.lib_activo = False
-        libro.save()
-        # return redirect('listado_libros') -> Se redireccionara durante el linkeado del modulo 
-        response_data = {
-            "status": "success",
-            "mensaje": f"El libro {libro.lib_titulo} se ha desactivado con exito."
-        }
-    else:
-        response_data = {
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} ya se encuentra desactivado."
-        }
-    return JsonResponse(response_data) # -> Desactivar cuando se redireccione hacia el listado
 
 def modificar_libro(request, id):
     """
@@ -388,14 +364,14 @@ def modificar_libro(request, id):
         libro.lib_titulo = libro_titulo
         libro.lib_descripcion = libro_descripcion
         libro.lib_isbn = libro_isbn
-        libro.lib_autor = libro_autor
+        libro.lib_autor__id = libro_autor
         libro.lib_activo = libro_activo
 
         libro.save()
 
         return redirect('listado_libros')
 
-    #return render(request, 'biblioteca/libros/modificar_libro.html', { "libro": libro })
+    return render(request, 'biblioteca/libros/modificar_libro.html', {"libro": libro})
 
 def agregar_libro(request):
     """
