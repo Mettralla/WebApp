@@ -323,8 +323,21 @@ def activar_libro(request, id):
             "mensaje": f"El libro {libro.lib_titulo} se activó con éxito."
         }
         return JsonResponse(response_data)
-    
+
 def desactivar_libro(request, id):
+    """
+    Desactiva un Libro según el ID proporcionado.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): El ID del Libro a desactivar.
+
+    Returns:
+        JsonResponse: Una respuesta JSON con un mensaje de exito o de informacion en caso contrario.
+
+    Raises:
+        Http404: Si no se encuentra un Libro con el ID especificado.
+    """
     libro = get_object_or_404(Libro, id = id)
 
     if libro.lib_activo:
