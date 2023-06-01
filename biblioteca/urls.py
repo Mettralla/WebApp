@@ -21,4 +21,5 @@ urlpatterns = [
     path('socios/modificar/<int:id>', views.modificar_socio, name="modificar_socio"),
 
     path('libros/activar/<int:id>', views.activar_libro, name="activar_libro"),
+    path('libros/desactivar/<int:id>', views.desactivar_libro, name='desactivar_libro'),
 ]

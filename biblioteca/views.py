@@ -323,7 +323,24 @@ def activar_libro(request, id):
             "mensaje": f"El libro {libro.lib_titulo} se activó con éxito."
         }
         return JsonResponse(response_data)
+    
+def desactivar_libro(request, id):
+    libro = get_object_or_404(Libro, id = id)
 
+    if libro.lib_activo:
+        libro.lib_activo = False
+        libro.save()
+        # return redirect('listado_libros') -> Se redireccionara durante el linkeado del modulo 
+        response_data = {
+            "status": "success",
+            "mensaje": f"El libro {libro.lib_titulo} se ha desactivado con exito."
+        }
+    else:
+        response_data = {
+            "status": "info",
+            "mensaje": f"El libro {libro.lib_titulo} ya se encuentra desactivado."
+        }
+    return JsonResponse(response_data) # -> Desactivar cuando se redireccione hacia el listado
 
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
