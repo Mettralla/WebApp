@@ -453,3 +453,25 @@ def agregar_prestamo(request):
 
     return render(request, 'biblioteca/prestamos/agregar_prestamo.html', context)
 
+""" 
+    View que permite Eliminar un registro de Préstamo de Libro
+
+    Return:
+        HttpResponse --> muestra un mensaje que indica que el prestamo fue eliminado
+"""
+def eliminar_prestamo(request, prestamo_id):
+    prestamo = Prestamo.objects.get(id=prestamo_id)
+    prestamo.delete()
+
+    return HttpResponse(f'El prestamo con ID {prestamo_id} fue eliminado.')
+
+def listado_prestamos(request):
+    """
+    Muestra el listado de todos los prestamos.
+
+    Returns:
+        HttpResponse: Una respuesta HTTP que renderiza el listado de prestamos.
+
+    """
+    prestamos = Prestamo.objects.all()
+    return render(request, 'biblioteca/prestamos/listado_prestamos.html', { "prestamos": prestamos })
