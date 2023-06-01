@@ -51,7 +51,7 @@ class Libro(models.Model):
     lib_activo = models.BooleanField(default=True, verbose_name='Activo')
 
     def __str__(self) -> str:
-        return f"Titulo: {self.lib_titulo} - Autor: {self.lib_autor} - ISBN: {self.lib_isbn} - Descripcion: {self.lib_descripcion} - Activo: {self.lib_activo}"
+        return f"{self.lib_titulo}"
 
 class Empleado(models.Model):
     """Modelo Empleado, donde se alamacenaran los datos de cada empleado de la bibliteca
@@ -62,7 +62,7 @@ class Empleado(models.Model):
     emp_activo= models.BooleanField(default=True,verbose_name='Activo')
     
     def __str__(self):
-        return f"Empleado: {self.emp_nombre} {self.emp_apellido} Legajo: {self.emp_legajo}"
+        return f"{self.emp_nombre} {self.emp_apellido}"
 
 class Prestamo(models.Model):
     """Modelo Prestamo, donde se registran los prestamos que se realizan a los socios"""
