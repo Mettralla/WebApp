@@ -374,6 +374,8 @@ def agregar_prestamo(request):
         HttpResponse: Respuesta HTTP que muestra el formulario de agregar préstamo o redirecciona al listado.
 
     """
+
+    # Se filtran los registros para enviar solo objetos activos
     socios_activos = Socio.objects.filter(activo=True)
     libros_disponibles = Libro.objects.filter(lib_activo=True)
     empleados_activos = Empleado.objects.filter(emp_activo= True)
@@ -397,7 +399,15 @@ def agregar_prestamo(request):
         prestamo.libro = libro_id
         prestamo.empleado = empleado_id
 
+        # Se guarda el registro de prestamo creado.
         prestamo.save()
+
+        # Se desactiva el libro prestado hasta que se lo regrese.
+        libro_prestado = get_object_or_404(Libro, id = libro_id)
+        libro_prestado.lib_activo = False
+        libro_prestado.save()
+        
+        # Se redirecciona hacia el listado
         # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
 
     return render(request, 'agregar_prestamo.html', context)
