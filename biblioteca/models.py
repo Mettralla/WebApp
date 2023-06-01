@@ -90,7 +90,7 @@ class Prestamo(models.Model):
         return f"""
     Libro solicitado: {self.libro}
     Fecha de prestado: {self.pres_fecha}
-    Devuelto: {self.pres_devuelto}
+    Devuelto: {self.pres_devolucion}
     
     Prestado a: {self.socio}
     Autorizado por: {self.empleado}"""

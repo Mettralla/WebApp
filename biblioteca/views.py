@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from biblioteca.models import Empleado, Autor, Socio, Libro
+from biblioteca.models import Empleado, Autor, Socio, Libro, Prestamo
 from django.http import HttpResponse, JsonResponse
+from django.utils import timezone
 
 # Create your views here.
 
@@ -358,3 +359,45 @@ def desactivar_libro(request, id):
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
 # ---------------------------------------------------------------------------
+
+def agregar_prestamo(request):
+    """
+    Agrega un nuevo prestamo a la base de datos.
+
+    Muestra el formulario de agregar prestamo con los socios activos, libros disponibles y empleados activos.
+    Si se realiza una solicitud POST con los datos del prestamo, se crea un nuevo registro de prestamo.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: Respuesta HTTP que muestra el formulario de agregar préstamo o redirecciona al listado.
+
+    """
+    socios_activos = Socio.objects.filter(activo=True)
+    libros_disponibles = Libro.objects.filter(lib_activo=True)
+    empleados_activos = Empleado.objects.filter(emp_activo= True)
+
+    context = {
+        'socios': socios_activos,
+        'libros': libros_disponibles,
+        'empleados': empleados_activos
+    }
+
+    if request.method == 'POST':
+        socio_id = request.POST.get('socio')
+        libro_id = request.POST.get('libro')
+        empleado_id = request.POST.get('empleado')
+
+        prestamo = Prestamo()
+
+        prestamo.pres_fecha = timezone.now()
+        prestamo.pres_devolucion = prestamo.pres_fecha + timezone.timedelta(days=2)
+        prestamo.socio = socio_id
+        prestamo.libro = libro_id
+        prestamo.empleado = empleado_id
+
+        prestamo.save()
+        # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
+
+    return render(request, 'agregar_prestamo.html', context)
