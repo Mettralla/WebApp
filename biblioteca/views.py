@@ -453,3 +453,14 @@ def agregar_prestamo(request):
 
     return render(request, 'agregar_prestamo.html', context)
 
+""" 
+    View que permite Eliminar un registro de Préstamo de Libro
+
+    Return:
+        HttpResponse --> muestra un mensaje que indica que el prestamo fue eliminado
+"""
+def eliminar_prestamo(request, prestamo_id):
+    prestamo = Prestamo.objects.get(id=prestamo_id)
+    prestamo.delete()
+
+    return HttpResponse(f'El producto con ID {prestamo_id} fue eliminado.')
