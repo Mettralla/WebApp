@@ -293,6 +293,12 @@ def modificar_socio(request, id):
 # VIEWS DE LIBROS
 # ---------------------------------------------------------------------------
 
+def listado_libros(request):
+    libros= Libro.objects.all()
+    context= {'libros':libros}
+    
+    #return render(request, 'biblioteca/libros/listado_libros.html', context) ==> Posteriormente renderizará este HTML
+
 def activar_libro(request, id):
     """
     Activa un registro de un Libro según el ID proporcionado.
@@ -356,6 +362,41 @@ def desactivar_libro(request, id):
         }
     return JsonResponse(response_data) # -> Desactivar cuando se redireccione hacia el listado
 
+def modificar_libro(request, id):
+    """
+    Modifica el registro de un libro existente.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id (int): ID del libro a modificar.
+
+    Returns:
+        HttpResponse: Redirige al listado de libros o renderiza el formulario para modificar un libro.
+
+    Raises:
+        Http404: Si no se encuentra ningún libro con el ID proporcionado en la base de datos.
+    """
+    libro = get_object_or_404(Libro, id=id)
+
+    if request.POST:
+        libro_titulo = request.POST["titulo"]
+        libro_descripcion = request.POST["descripcion"]
+        libro_isbn = request.POST["isbn"]
+        libro_autor = request.POST["autor"]
+        libro_activo = True if request.POST.get("activo") else False
+
+        libro.lib_titulo = libro_titulo
+        libro.lib_descripcion = libro_descripcion
+        libro.lib_isbn = libro_isbn
+        libro.lib_autor = libro_autor
+        libro.lib_activo = libro_activo
+
+        libro.save()
+
+        return redirect('listado_libros')
+
+    #return render(request, 'biblioteca/libros/modificar_libro.html', { "libro": libro })
+
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
 # ---------------------------------------------------------------------------
@@ -411,3 +452,4 @@ def agregar_prestamo(request):
         # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
 
     return render(request, 'agregar_prestamo.html', context)
+

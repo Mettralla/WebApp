@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Préstamos</title>
+</head>
+<body>
+    <a href="{% url 'crear_prestamo' %}">Agregar prestamo</a>
+    <br><br>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Fecha de Préstamo</th>
+            <th>Fecha de Devolución</th>
+            <th>Socio</th>
+            <th>Libro</th>
+            <th>Empleado</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>   
+        </tr>
+        
+        {% for prestamo in prestamos%}
+
+        <tr>
+            <td>{{prestamo.id}}</td>
+            <td>{{prestamo.pres_fecha | date:"d-m-Y h:m"}}</td>
+            <td>{{prestamo.pres_devolucion | date:"d-m-Y h:m"}}</td>
+            <td>{{prestamo.socio}}</td>
+            <td>{{prestamo.libro}}</td>
+            <td>{{prestamo.empleado}}</td>
+
+            <td>
+                <a>Editar</a>
+            </td>
+
+            <td>
+                <a>Eliminar</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</body>
+</html>
