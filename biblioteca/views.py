@@ -451,7 +451,7 @@ def agregar_prestamo(request):
         # Se redirecciona hacia el listado
         # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
 
-    return render(request, 'agregar_prestamo.html', context)
+    return render(request, 'biblioteca/prestamos/agregar_prestamo.html', context)
 
 """ 
     View que permite Eliminar un registro de Préstamo de Libro
@@ -464,3 +464,14 @@ def eliminar_prestamo(request, prestamo_id):
     prestamo.delete()
 
     return HttpResponse(f'El producto con ID {prestamo_id} fue eliminado.')
+
+def listado_prestamos(request):
+    """
+    Muestra el listado de todos los prestamos.
+
+    Returns:
+        HttpResponse: Una respuesta HTTP que renderiza el listado de prestamos.
+
+    """
+    prestamos = Prestamo.objects.all()
+    return render(request, 'biblioteca/prestamos/listado_prestamos.html', { "prestamos": prestamos })
