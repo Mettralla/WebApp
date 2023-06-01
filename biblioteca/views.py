@@ -451,5 +451,5 @@ def agregar_prestamo(request):
         # Se redirecciona hacia el listado
         # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
 
-    return render(request, 'agregar_prestamo.html', context)
+    return render(request, 'biblioteca/prestamos/agregar_prestamo.html', context)
 
