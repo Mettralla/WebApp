@@ -352,7 +352,14 @@ def modificar_libro(request, id):
     Raises:
         Http404: Si no se encuentra ningún libro con el ID proporcionado en la base de datos.
     """
+    autores = Autor.objects.all()
+
     libro = get_object_or_404(Libro, id=id)
+
+    context = {
+        "autores":autores,
+        "libro":libro
+    }
 
     if request.POST:
         libro_titulo = request.POST["titulo"]
@@ -371,37 +378,7 @@ def modificar_libro(request, id):
 
         return redirect('listado_libros')
 
-    return render(request, 'biblioteca/libros/modificar_libro.html', {"libro": libro})
-
-def agregar_libro(request):
-    """
-    Agrega un nuevo libro a la base de datos.
-
-    Parameters:
-        request (HttpRequest): La solicitud HTTP recibida.
-
-    Returns:
-        HttpResponse: Redirige al listado de socios o renderiza el formulario para agregar un socio.
-    """
-    autores = Autor.objects.all()
-    context= {
-        'autores':autores
-    }
-    if request.POST:
-        titulo = request.POST['titulo']
-        descripcion  = request.POST['descripcion']
-        isbn = request.POST['isbn']
-        autor_id= request.POST['autor']
-
-        Libro.objects.create(
-            lib_titulo = titulo,
-			lib_descripcion = descripcion,
-            lib_isbn = isbn,
-            lib_autor_id=autor_id
-        )
-        return redirect('listado_libros')
-
-    return render(request, 'biblioteca/libros/agregar_libro.html',context)
+    return render(request, 'biblioteca/libros/modificar_libro.html', context)
 
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
