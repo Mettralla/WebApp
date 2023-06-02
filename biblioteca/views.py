@@ -490,3 +490,32 @@ def listado_prestamos(request):
     """
     prestamos = Prestamo.objects.all()
     return render(request, 'biblioteca/prestamos/listado_prestamos.html', { "prestamos": prestamos })
+
+def modificar_prestamo(request,id_prestamo):
+    prestamo= get_object_or_404(Prestamo,id=id_prestamo)
+    empleados= Empleado.objects.all()
+    socios= Socio.objects.all()
+    libros= Libro.objects.all()
+    context={
+        'prestamo': prestamo,
+        'socios': socios,
+        'empleados': empleados,
+        'libros': libros,
+    }
+    
+    if request.POST:
+        fecha = request.POST['fecha']
+        devolucion  = request.POST['devolucion']
+        socio_id = request.POST['socio']
+        libro_id= request.POST['libro']
+        empleado_id= request.POST['empleado']
+
+   
+        prestamo.pres_fecha= fecha
+        prestamo.pres_devolucion= devolucion
+        prestamo.socio= socio_id
+        prestamo.libro= libro_id
+        prestamo.empleado= empleado_id
+        prestamo.save()
+        return redirect('listado_prestamos')
+    return render(request, 'biblioteca/prestamos/modificar_prestamo.html', context)
