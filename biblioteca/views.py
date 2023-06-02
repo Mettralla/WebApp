@@ -371,7 +371,7 @@ def modificar_libro(request, id):
         libro.lib_titulo = libro_titulo
         libro.lib_descripcion = libro_descripcion
         libro.lib_isbn = libro_isbn
-        libro.lib_autor__id = libro_autor
+        libro.lib_autor_id = libro_autor
         libro.lib_activo = libro_activo
 
         libro.save()
