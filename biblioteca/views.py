@@ -352,7 +352,7 @@ def modificar_libro(request, id):
     Raises:
         Http404: Si no se encuentra ningún libro con el ID proporcionado en la base de datos.
     """
-    autores = Autor.objects.all()
+    autores = Autor.objects.filter(activo=True)
 
     libro = get_object_or_404(Libro, id=id)
 
@@ -534,19 +534,20 @@ def modificar_prestamo(request,id):
     }
 
     if request.method == 'POST':
-        socio_id = request.POST['socio']
+        # Vas a necesitar traer los objetos. ex: get_object_or_404(Socio, id = request.POST.get('socio'))
+        socio_id = request.POST['socio'] 
         libro_id = request.POST['libro']
         empleado_id = request.POST['empleado']
-        
-        activar_libro(prestamo.pres_libro_id)
-        
+
+        activar_libro(prestamo.pres_libro_id) # prestamo.pres_libro_id no existe, y esta funcion requiere un request no te va a dejar usarla asi.
+
         prestamo.pres_fecha = timezone.now()
         prestamo.pres_devolucion = prestamo.pres_fecha + timezone.timedelta(days=2)
-        prestamo.socio_id = socio_id
-        prestamo.libro_id = libro_id
-        prestamo.empleado = empleado_id
-        
-        desactivar_libro(libro_id)
+        prestamo.socio_id = socio_id #prestamo.socio_id no existe, deberia ser prestamos.socio y recibir un objeto Socio 
+        prestamo.libro_id = libro_id  #prestamo.libro_id no existe, deberia ser prestamos.libro y recibir un objeto Libro 
+        prestamo.empleado = empleado_id #prestamo empleado recibe un objeto Empleado
+
+        desactivar_libro(libro_id) # Esta funcion requiere un request no te va a dejar usarla asi.
 
         prestamo.save() 
         return redirect('listado_prestamos')

@@ -26,8 +26,8 @@
         <div>
             <label for="socio">Socio:</label>
             <select name="socio" id="socio">
-            {% for socio in socios_activos %}
-                <option value="{{ socio.id }}">{{socio.nombre}} </option>
+            {% for socio in socios %}
+                <option value="{{ socio.id }}">{{socio.nombre}} {{socio.apellido}}</option>
             {% endfor %}
             </select>
         </div>
@@ -37,7 +37,7 @@
         <div>
             <label for="libro">Libro:</label>
             <select name="libro" id="libro">
-            {% for libro in libros_disponibles %}
+            {% for libro in libros %}
                 <option value="{{ libro.id }}">{{libro.lib_titulo}} </option>
             {% endfor %}
             </select>
@@ -48,7 +48,7 @@
         <div>
             <label for="empleado">Empleado:</label>
             <select name="empleado" id="empleado">
-            {% for empleado in empleados_activos %}
+            {% for empleado in empleados %}
                 <option value="{{ empleado.id }}">{{empleado.emp_nombre}} {{empleado.emp_apellido}} </option>
             {% endfor %}
             </select>
