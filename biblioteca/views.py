@@ -381,26 +381,32 @@ def modificar_libro(request, id):
     return render(request, 'biblioteca/libros/modificar_libro.html', context)
 
 def agregar_libro(request):
-    autores= Autor.objects.all()
-    
-    context={
-        'autores': autores
+    """
+    Agrega un nuevo libro a la base de datos.
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+    Returns:
+        HttpResponse: Redirige al listado de socios o renderiza el formulario para agregar un socio.
+    """
+    autores = Autor.objects.all()
+    context= {
+        'autores':autores
     }
     if request.POST:
-        libro_titulo = request.POST["titulo"]
-        libro_descripcion = request.POST["descripcion"]
-        libro_isbn = request.POST["isbn"]
-        autor_id = request.POST["autor"]
-        print(f"{autor_id= }")
+        titulo = request.POST['titulo']
+        descripcion  = request.POST['descripcion']
+        isbn = request.POST['isbn']
+        autor_id= request.POST['autor']
+
         Libro.objects.create(
-        lib_titulo = libro_titulo,
-        lib_descripcion = libro_descripcion,
-        lib_isbn = libro_isbn,
-        lib_autor_id= autor_id
+            lib_titulo = titulo,
+			lib_descripcion = descripcion,
+            lib_isbn = isbn,
+            lib_autor_id=autor_id
         )
         return redirect('listado_libros')
-        
-    return render(request, 'biblioteca/libros/agregar_libro.html', context)
+
+    return render(request, 'biblioteca/libros/agregar_libro.html',context)
 
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
