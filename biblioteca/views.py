@@ -376,7 +376,14 @@ def modificar_libro(request, id):
     Raises:
         Http404: Si no se encuentra ningún libro con el ID proporcionado en la base de datos.
     """
+    autores = Autor.objects.all()
+
     libro = get_object_or_404(Libro, id=id)
+
+    context = {
+        "autores":autores,
+        "libro":libro
+    }
 
     if request.POST:
         libro_titulo = request.POST["titulo"]
@@ -395,7 +402,7 @@ def modificar_libro(request, id):
 
         return redirect('listado_libros')
 
-    #return render(request, 'biblioteca/libros/modificar_libro.html', { "libro": libro })
+    return render(request, 'biblioteca/libros/modificar_libro.html', context)
 
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS

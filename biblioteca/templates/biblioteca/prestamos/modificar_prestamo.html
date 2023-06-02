@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Préstamo</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="fecha_prestamo">Fecha de Préstamo:</label>
+            <input type="datetime" name="fecha_prestamo" id="fecha_prestamo" value='{{ prestamo.pres_fecha | date:"Y-m-d h:m" }}' required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="fecha_devolucion">Fecha de Devolución:</label>
+            <input type="datetime" name="fecha_devolucion" id="fecha_devolucion" value='{{ prestamo.pres_devolucion| date:"Y-m-d h:m" }}' required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="socio">Socio:</label>
+            <select name="socio" id="socio">
+            {% for socio in socios_activos %}
+                <option value="{{ socio.id }}">{{socio.nombre}} </option>
+            {% endfor %}
+            </select>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="libro">Libro:</label>
+            <select name="libro" id="libro">
+            {% for libro in libros_disponibles %}
+                <option value="{{ libro.id }}">{{libro.lib_titulo}} </option>
+            {% endfor %}
+            </select>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="empleado">Empleado:</label>
+            <select name="empleado" id="empleado">
+            {% for empleado in empleados_activos %}
+                <option value="{{ empleado.id }}">{{empleado.emp_nombre}} {{empleado.emp_apellido}} </option>
+            {% endfor %}
+            </select>
+        </div>
+
+        <br>
+
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
