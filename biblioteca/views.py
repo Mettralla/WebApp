@@ -459,11 +459,20 @@ def agregar_prestamo(request):
     Return:
         HttpResponse --> muestra un mensaje que indica que el prestamo fue eliminado
 """
-def eliminar_prestamo(request, prestamo_id):
-    prestamo = Prestamo.objects.get(id=prestamo_id)
+def eliminar_prestamo(request, id):
+    prestamo = Prestamo.objects.get(id=id)
+
+    #Se recupera el ID del libro prestado para posteriormente activarlo
+    libro = Libro.objects.get(id=prestamo.libro.id)
+
+    #Se borra el registro del prestamo
     prestamo.delete()
 
-    return HttpResponse(f'El prestamo con ID {prestamo_id} fue eliminado.')
+    #Se activa el libro prestado
+    libro.lib_activo = True
+    libro.save()
+
+    return HttpResponse(f'El prestamo con ID {id} fue eliminado.')
 
 def listado_prestamos(request):
     """
