@@ -7,18 +7,22 @@
     <title>Modificar Préstamo</title>
 </head>
 <body>
+    <a href="{% url 'listado_prestamos' %}">Lista de Prestamos</a>
+
+    <br><br>
+
     <form method="post">
         {% csrf_token %}
         <div>
             <label for="fecha_prestamo">Fecha de Préstamo:</label>
-            <input type="datetime" name="fecha_prestamo" id="fecha_prestamo" value='{{ prestamo.pres_fecha | date:"Y-m-d h:m" }}' required>
+            <input type="date" name="fecha_prestamo" id="fecha_prestamo" value='{{ prestamo.pres_fecha | date:"Y-m-d" }}' required>
         </div>
 
         <br>
 
         <div>
             <label for="fecha_devolucion">Fecha de Devolución:</label>
-            <input type="datetime" name="fecha_devolucion" id="fecha_devolucion" value='{{ prestamo.pres_devolucion| date:"Y-m-d h:m" }}' required>
+            <input type="date" name="fecha_devolucion" id="fecha_devolucion" value='{{ prestamo.pres_devolucion| date:"Y-m-d" }}' required>
         </div>
 
         <br>
