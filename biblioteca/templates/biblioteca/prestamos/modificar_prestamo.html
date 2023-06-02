@@ -15,14 +15,14 @@
         {% csrf_token %}
         <div>
             <label for="fecha_prestamo">Fecha de Préstamo:</label>
-            <input type="date" name="fecha_prestamo" id="fecha_prestamo" value='{{ prestamo.pres_fecha | date:"Y-m-d" }}' required>
+            <input type="date" name="fecha_prestamo" id="fecha_prestamo" value='{{ prestamo.pres_fecha | date:"Y-m-d" }}' readonly onkeydown="return false;">
         </div>
 
         <br>
 
         <div>
             <label for="fecha_devolucion">Fecha de Devolución:</label>
-            <input type="date" name="fecha_devolucion" id="fecha_devolucion" value='{{ prestamo.pres_devolucion| date:"Y-m-d" }}' required>
+            <input type="date" name="fecha_devolucion" id="fecha_devolucion" value='{{ prestamo.pres_devolucion| date:"Y-m-d" }}' readonly onkeydown="return false;">
         </div>
 
         <br>
@@ -41,11 +41,13 @@
         <div>
             <label for="libro">Libro:</label>
             <select name="libro" id="libro">
+                <option value="{{libro_prestado.id }}" selected>{{libro_prestado.lib_titulo}} </option>
             {% for libro in libros %}
                 <option value="{{ libro.id }}">{{libro.lib_titulo}} </option>
             {% endfor %}
             </select>
         </div>
+
 
         <br>
 

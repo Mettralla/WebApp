@@ -525,10 +525,12 @@ def modificar_prestamo(request,id):
     libros = Libro.objects.filter(lib_activo=True)
     empleados = Empleado.objects.filter(emp_activo= True)
     prestamo= get_object_or_404(Prestamo, id=id)
-
+    libro_prestado= Libro.objects.get(id=prestamo.libro_id)
+    
     context = {
         'prestamo': prestamo,
         'socios': socios,
+        'libro_prestado': libro_prestado,
         'libros': libros,
         'empleados': empleados
     }
@@ -537,18 +539,24 @@ def modificar_prestamo(request,id):
         # Vas a necesitar traer los objetos. ex: get_object_or_404(Socio, id = request.POST.get('socio'))
         socio_id = request.POST['socio'] 
         libro_id = request.POST['libro']
-        empleado_id = request.POST['empleado']
-
-        activar_libro(prestamo.pres_libro_id) # prestamo.pres_libro_id no existe, y esta funcion requiere un request no te va a dejar usarla asi.
-
+        empleado_id = request.POST['empleado']        
+        
         prestamo.pres_fecha = timezone.now()
         prestamo.pres_devolucion = prestamo.pres_fecha + timezone.timedelta(days=2)
         prestamo.socio_id = socio_id #prestamo.socio_id no existe, deberia ser prestamos.socio y recibir un objeto Socio 
         prestamo.libro_id = libro_id  #prestamo.libro_id no existe, deberia ser prestamos.libro y recibir un objeto Libro 
-        prestamo.empleado = empleado_id #prestamo empleado recibe un objeto Empleado
+        prestamo.empleado_id = empleado_id #prestamo empleado recibe un objeto Empleado
 
-        desactivar_libro(libro_id) # Esta funcion requiere un request no te va a dejar usarla asi.
+         # Esta funcion requiere un request no te va a dejar usarla asi.
 
         prestamo.save() 
+        
+        if libro_prestado.id != libro_id:
+            libro_nuevo= Libro.objects.get(id=prestamo.libro_id)
+            libro_prestado.lib_activo = True 
+            libro_prestado.save()
+            libro_nuevo.lib_activo = False
+            libro_nuevo.save()
+
         return redirect('listado_prestamos')
     return render(request, 'biblioteca/prestamos/modificar_prestamo.html', context)
