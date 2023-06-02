@@ -297,7 +297,7 @@ def listado_libros(request):
     libros= Libro.objects.all()
     context= {'libros':libros}
     
-    #return render(request, 'biblioteca/libros/listado_libros.html', context) ==> Posteriormente renderizará este HTML
+    return render(request, 'biblioteca/libros/listado_libros.html', context)
 
 def activar_libro(request, id):
     """
@@ -314,22 +314,9 @@ def activar_libro(request, id):
         Http404: Si no se encuentra un Libro con el ID especificado.
     """
     libro = get_object_or_404(Libro, id=id)
-
-    if libro.lib_activo:
-        response_data = { 
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} ya esta activo."
-        }
-        return JsonResponse(response_data)
-    else:
-        libro.lib_activo = True
-        libro.save()
-        #return redirect('listado_libros')  ==> Posteriormente se implementara este redireccionamiento
-        response_data = { 
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} se activó con éxito."
-        }
-        return JsonResponse(response_data)
+    libro.lib_activo = True
+    libro.save()
+    return redirect('listado_libros')
 
 def desactivar_libro(request, id):
     """
@@ -346,21 +333,10 @@ def desactivar_libro(request, id):
         Http404: Si no se encuentra un Libro con el ID especificado.
     """
     libro = get_object_or_404(Libro, id = id)
+    libro.lib_activo = False
+    libro.save()
+    return redirect('listado_libros')
 
-    if libro.lib_activo:
-        libro.lib_activo = False
-        libro.save()
-        # return redirect('listado_libros') -> Se redireccionara durante el linkeado del modulo 
-        response_data = {
-            "status": "success",
-            "mensaje": f"El libro {libro.lib_titulo} se ha desactivado con exito."
-        }
-    else:
-        response_data = {
-            "status": "info",
-            "mensaje": f"El libro {libro.lib_titulo} ya se encuentra desactivado."
-        }
-    return JsonResponse(response_data) # -> Desactivar cuando se redireccione hacia el listado
 
 def modificar_libro(request, id):
     """
@@ -395,7 +371,7 @@ def modificar_libro(request, id):
         libro.lib_titulo = libro_titulo
         libro.lib_descripcion = libro_descripcion
         libro.lib_isbn = libro_isbn
-        libro.lib_autor = libro_autor
+        libro.lib_autor__id = libro_autor
         libro.lib_activo = libro_activo
 
         libro.save()
@@ -419,8 +395,10 @@ def agregar_prestamo(request):
         request (HttpRequest): La solicitud HTTP recibida.
 
     Returns:
-        HttpResponse: Respuesta HTTP que muestra el formulario de agregar préstamo o redirecciona al listado.
-
+        HttpResponse: Respuesta HTTP que muestra el formulario de agregar préstamo o redirecciona al listado despues de creado.
+        
+    Raises:
+        JsonResponse: Si no hay libros disponibles, se devolvera un mensaje de que no puede realizarse esta accion.
     """
 
     # Se filtran los registros para enviar solo objetos activos
@@ -435,38 +413,46 @@ def agregar_prestamo(request):
     }
 
     if request.method == 'POST':
-        socio_id = request.POST.get('socio')
-        libro_id = request.POST.get('libro')
-        empleado_id = request.POST.get('empleado')
+        
+        # Se recopilan los objetos enviados por template
+        socio_prestamista = get_object_or_404(Socio, id = request.POST.get('socio'))
+        libro_prestado = get_object_or_404(Libro, id = request.POST.get('libro'))
+        empleado_responsable = get_object_or_404(Empleado, id = request.POST.get('empleado'))
 
+        # Se crea una instancia de prestamos
         prestamo = Prestamo()
 
+        # Se genera automaticamente las fechas
         prestamo.pres_fecha = timezone.now()
         prestamo.pres_devolucion = prestamo.pres_fecha + timezone.timedelta(days=2)
-        prestamo.socio = socio_id
-        prestamo.libro = libro_id
-        prestamo.empleado = empleado_id
+        # Se asignan los objetos enviados
+        prestamo.socio = socio_prestamista
+        prestamo.libro = libro_prestado
+        prestamo.empleado = empleado_responsable
 
         # Se guarda el registro de prestamo creado.
         prestamo.save()
 
         # Se desactiva el libro prestado hasta que se lo regrese.
-        libro_prestado = get_object_or_404(Libro, id = libro_id)
         libro_prestado.lib_activo = False
         libro_prestado.save()
-        
+
         # Se redirecciona hacia el listado
-        # return redirect('listado_prestamos') -> Redireccionar a listado_prestamos durante el linkeado
+        return redirect('listado_prestamos')
+
+    # Si no hay libros disponibles, no permitira crear nuevos prestamos.
+    if libros_disponibles.count() == 0:
+        return JsonResponse({'status': 'info', 'message': 'Lo sentimos, no hay libros disponibles en la biblioteca'})
 
     return render(request, 'biblioteca/prestamos/agregar_prestamo.html', context)
 
-""" 
+def eliminar_prestamo(request, id):
+    """ 
     View que permite Eliminar un registro de Préstamo de Libro
 
     Return:
         HttpResponse --> muestra un mensaje que indica que el prestamo fue eliminado
-"""
-def eliminar_prestamo(request, id):
+    """
     prestamo = Prestamo.objects.get(id=id)
 
     #Se recupera el ID del libro prestado para posteriormente activarlo
