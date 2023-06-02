@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Libros</title>
+</head>
+<body>
+    <a href="{% url 'nuevo_libro' %}">Agregar Libro</a>
+    <br><br>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>ISBN</th>
+            <th>Autor</th>
+            <th>Estado</th>
+            <th>Modificar</th>
+        </tr>
+        
+        {% for libro in libros%}
+
+        <tr>
+            <td>{{libro.id}}</td>
+            <td>{{libro.lib_titulo }}</td>
+            <td>{{libro.lib_descripcion }}</td>
+            <td>{{libro.lib_isbn}}</td>
+            <td>{{libro.lib_autor}}</td>
+
+            <td>
+                {% if libro.lib_activo %}
+                    <a href="{% url 'desactivar_libro' libro.id %}">Desactivar</a>
+                {% else %}
+                    <a href="{% url 'activar_libro' libro.id %}">Activar</a>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'modificar_libro' libro.id %}">Editar</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</body>
+</html>
