@@ -380,34 +380,6 @@ def modificar_libro(request, id):
 
     return render(request, 'biblioteca/libros/modificar_libro.html', context)
 
-def agregar_libro(request):
-    """
-    Agrega un nuevo libro a la base de datos.
-    Parameters:
-        request (HttpRequest): La solicitud HTTP recibida.
-    Returns:
-        HttpResponse: Redirige al listado de socios o renderiza el formulario para agregar un socio.
-    """
-    autores = Autor.objects.all()
-    context= {
-        'autores':autores
-    }
-    if request.POST:
-        titulo = request.POST['titulo']
-        descripcion  = request.POST['descripcion']
-        isbn = request.POST['isbn']
-        autor_id= request.POST['autor']
-
-        Libro.objects.create(
-            lib_titulo = titulo,
-			lib_descripcion = descripcion,
-            lib_isbn = isbn,
-            lib_autor_id=autor_id
-        )
-        return redirect('listado_libros')
-
-    return render(request, 'biblioteca/libros/agregar_libro.html',context)
-
 # ---------------------------------------------------------------------------
 # VIEWS DE PRESTAMOS
 # ---------------------------------------------------------------------------
@@ -506,31 +478,48 @@ def listado_prestamos(request):
     prestamos = Prestamo.objects.all()
     return render(request, 'biblioteca/prestamos/listado_prestamos.html', { "prestamos": prestamos })
 
-def modificar_prestamo(request,id_prestamo):
-    prestamo= get_object_or_404(Prestamo,id=id_prestamo)
-    empleados= Empleado.objects.all()
-    socios= Socio.objects.all()
-    libros= Libro.objects.all()
-    context={
+def modificar_prestamo(request,id):
+    """
+    Modifica un prestamo de la base de datos.
+
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id_prestamo (int): id del prestamo a modificar
+
+    Returns:
+        HttpResponse: Respuesta HTTP que muestra el formulario de modificar un préstamo o redirecciona al listado despues de creado.
+        
+    """
+
+    # Se filtran los registros para enviar solo objetos activos
+    socios = Socio.objects.filter(activo=True)
+    libros = Libro.objects.filter(lib_activo=True)
+    empleados = Empleado.objects.filter(emp_activo= True)
+    prestamo= get_object_or_404(Prestamo, id=id)
+
+    context = {
         'prestamo': prestamo,
         'socios': socios,
-        'empleados': empleados,
         'libros': libros,
+        'empleados': empleados
     }
-    
-    if request.POST:
-        fecha = request.POST['fecha']
-        devolucion  = request.POST['devolucion']
-        socio_id = request.POST['socio']
-        libro_id= request.POST['libro']
-        empleado_id= request.POST['empleado']
 
-   
-        prestamo.pres_fecha= fecha
-        prestamo.pres_devolucion= devolucion
-        prestamo.socio= socio_id
-        prestamo.libro= libro_id
-        prestamo.empleado= empleado_id
-        prestamo.save()
+    if request.method == 'POST':
+        socio_id = request.POST['socio']
+        libro_id = request.POST['libro']
+        empleado_id = request.POST['empleado']
+        
+        activar_libro(prestamo.pres_libro_id)
+        
+        prestamo.pres_fecha = timezone.now()
+        prestamo.pres_devolucion = prestamo.pres_fecha + timezone.timedelta(days=2)
+        prestamo.socio_id = socio_id
+        prestamo.libro_id = libro_id
+        prestamo.empleado = empleado_id
+        
+        desactivar_libro(libro_id)
+
+        prestamo.save() 
         return redirect('listado_prestamos')
     return render(request, 'biblioteca/prestamos/modificar_prestamo.html', context)
