@@ -34,7 +34,7 @@
             <label for="autor">Autor:</label>
             <select name="autor" id="autor">
                 {% for autor in autores %}
-                    <option value="{{ autor.id }}" {% if autor.id == libro.lib_autor %}selected{% endif %}>
+                    <option value="{{ autor.id }}" {% if autor.id == libro.lib_autor_id %} selected {% endif %}>
                         {{ autor.nombre }} {{ autor.apellido }}
                     </option>
                 {% endfor %}
