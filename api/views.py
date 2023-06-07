@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from biblioteca.models import Libro
+from biblioteca.models import Libro, Autor
 
 # Create your views here.
 
@@ -47,5 +47,35 @@ def libro_por_id(request, id):
             'autor': f'{ libro.lib_autor.nombre } { libro.lib_autor.apellido}'
         }
     ]
+
+    return JsonResponse(data, safe=False)
+
+# ---------------------------------------------------------------------------
+# VIEWS DEL AUTOR
+# ---------------------------------------------------------------------------
+
+def listado_autores_endpoint(request):
+    """
+    Endpoint para obtener un listado de autores.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        JsonResponse: Una respuesta JSON que contiene un listado de autores con sus respectivos detalles.
+    """
+    autores = Autor.objects.all()
+    data = []
+
+    for autor in autores:
+        data.append(
+            {
+                'id': autor.id,
+                'nombre': autor.nombre,
+                'apellido': autor.apellido,
+                'nacionalidad': autor.nacionalidad,
+                'activo': autor.activo
+            }
+        )
 
     return JsonResponse(data, safe=False)
