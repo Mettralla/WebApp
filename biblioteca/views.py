@@ -566,4 +566,4 @@ def modificar_prestamo(request,id):
 # ---------------------------------------------------------------------------
 
 def home(request):
-    return render(request, 'biblioteca/home.html')
+    return render(request, 'biblioteca/home/home.html')
