@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Socio</title>
-</head>
-<body>
+{% extends '../layout/base.html' %}
+
+{% block title %}Listado Socios{% endblock title %}
+
+{% block content %}
+
     <a href="{% url 'listado_socios' %}">Lista de Socios</a>
     <br><br>
 
@@ -18,20 +15,20 @@
             <input type="text" id="nombre" name="nombre" required="" pattern="[a-zA-Z, ]+" >
         </div>
         <br>
-
+        
         <div>
             <label for="apellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" required="" pattern="[a-zA-Z, ]+">
         </div>
         <br>
-
+        
         <div>
             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
         </div>
         <br>
-
+        
         <button type="submit">Guardar</button>
     </form>
-</body>
-</html>
+
+{% endblock content %}

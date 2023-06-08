@@ -32,4 +32,6 @@ urlpatterns = [
     path('prestamos/listado', views.listado_prestamos, name='listado_prestamos'),
     path('prestamos/modificar/<int:id>', views.modificar_prestamo, name='modificar_prestamo'),
     
+    path('home/', views.home, name='home' )
+    
 ]

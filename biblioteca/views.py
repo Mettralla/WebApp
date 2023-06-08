@@ -560,3 +560,10 @@ def modificar_prestamo(request,id):
 
         return redirect('listado_prestamos')
     return render(request, 'biblioteca/prestamos/modificar_prestamo.html', context)
+
+# ---------------------------------------------------------------------------
+# VIEWS DE HOME
+# ---------------------------------------------------------------------------
+
+def home(request):
+    return render(request, 'biblioteca/home.html')
