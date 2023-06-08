@@ -1,49 +1,75 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Prestamo</title>
-</head>
-<body>
+{% extends '../layout/base.html' %}
+
+{% block title %}Agregar Prestamo{% endblock title %}
+
+{% block content %}
+
     <a href="{% url 'listado_prestamos' %}">Lista de Prestamos</a>
     <br><br>
 
     <form method="post">
     {% csrf_token %}
 
-        <div>
-            <label>Socio</label>
-            <select name="socio" id="socio" >
-                {% for socio in socios %}
-                    <option value="{{ socio.id }}"> {{socio.nombre}} {{socio.apellido}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <br>
+	<section class="intro">
+	  <div class="mask d-flex align-items-center h-100" style="background-color: #D6D6D6;">
+		<div class="container">
+		  <div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+			  <div class="card" style="border-radius: 1rem;">
+				<div class="card-body p-5 text-center">
 
-        <div>
-            <label>Libro</label>
-            <select name="libro" id="libro">
-                {% for libro in libros %}
-                    <option value="{{ libro.id }}"> {{libro.lib_titulo}} </option>
-                {% endfor %}
-            </select>
-        </div>
-        <br>
+				  <div class="my-md-5 pb-5">
 
-        <div>
-            <label>Empleado</label>
-            <select name="empleado" id="empleado">
-                {% for empleado in empleados %}
-                    <option value="{{ empleado.id }}"> {{empleado.emp_nombre}} {{empleado.emp_apellido}} </option>
-                {% endfor %}
-            </select>
-        </div>
-        <br>
+					<h1 class="fw-bold mb-0">Agregar Prestamo</h1>
+                    <br>
 
-        <button type="submit">Guardar</button>
+					<i class="bi bi-book" style="font-size: 3rem"></i>
+                    <br>
+
+					<div class="form-outline mb-4">
+						<label class="form-label" for="socio">Socio:</label>
+						<select name="socio" id="socio">
+							{% for socio in socios %}
+								{% if socio.activo %}
+									<option value="{{ socio.id }}">{{ socio.nombre }} {{ socio.apellido }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					
+					<div class="form-outline mb-4">
+						<label class="form-label" for="libro">Libro:</label>
+						<select name="libro" id="libro">
+							{% for libro in libros %}
+								{% if libro.lib_activo %}
+									<option value="{{ libro.id }}">{{libro.lib_titulo}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					
+					<div class="form-outline mb-4">
+						<label class="form-label" for="empleado">Empleado:</label>
+						<select name="empleado" id="empleado">
+							{% for empleado in empleados %}
+								{% if empleado.emp_activo %}
+									<option value="{{ empleado.id }}">{{empleado.emp_nombre}} {{empleado.emp_apellido}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>		
+
+					<button class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5" type="submit">Guardar</button>
+
+				  </div>
+
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
     </form>
-</body>
-</html>
+
+{% endblock content %}
