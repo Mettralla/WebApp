@@ -1,43 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Empleado</title>
-</head>
-<body>
-    <a href="{% url 'crear_empleado' %}">Agregar empleado</a>
-    <br><br>
+{% extends '../layout/base.html' %}
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Legajo</th>
-			<th>Estado</th>
-            <th>Modificar</th>
-        </tr>
-        
-        {% for empleado in empleados %}
-			<tr>
-				<td>{{empleado.id}}</td>
-				<td>{{empleado.emp_nombre}}</td>
-				<td>{{empleado.emp_apellido}}</td>
-				<td>{{empleado.emp_legajo}}</td>
-				<td>
-                    {% if empleado.emp_activo %}
-                        <a href="{% url 'desactivar_empleado' empleado.id %}">Activo</a>
-                    {% else %}
-                        <a href="{% url 'activar_empleado' empleado.id %}">Inactivo</a>
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="{% url 'modificar_empleado' empleado.id %}">Editar</a>
-                </td>
-			</tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% block title %}Listado Libros{% endblock title %}
+
+{% block content %}
+
+    
+    <div class="row p-2 mt-5 mx-3 align-items-center" style="background-color: #DEDEDE; border-radius: 10px">
+        <div class="col text-start">
+            <h3>Libros</h3>
+        </div>
+        <div class="col text-end">
+            <a class="btn btn-light p-1 px-3 me-2" href="{% url 'home' %}">Volver</a>
+            <a class="btn btn-dark p-1 px-3 me-2" href="{% url 'nuevo_empleado' %}">Nuevo</a>
+        </div>
+    </div>
+
+    <div class="mx-3">
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Legajo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Modificar</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider"></tbody>
+                {% for empleado in empleados %}
+                    <tr>
+                        <td scope="row">{{empleado.id}}</td>
+                        <td>{{empleado.emp_nombre}}</td>
+                        <td>{{empleado.emp_apellido}}</td>
+                        <td>{{empleado.emp_legajo}}</td>
+                        <td>
+                            {% if empleado.emp_activo %}
+                                <a href="{% url 'desactivar_empleado' empleado.id %}">
+                                    <i class="bi bi-check-circle-fill link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-3"></i>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'activar_empleado' empleado.id %}">
+                                    <i class="bi bi-x-circle-fill link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-3"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'modificar_empleado' empleado.id %}">
+                                <i class="bi bi-pencil-square link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-2"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
