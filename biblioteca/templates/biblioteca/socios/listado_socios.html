@@ -4,38 +4,53 @@
 
 {% block content %}
 
+    
+    <div class="row p-2 mt-5 mx-3 align-items-center" style="background-color: #DEDEDE; border-radius: 10px">
+        <div class="col text-start">
+            <h3>Socios</h3>
+        </div>
+        <div class="col text-end">
+            <a class="btn btn-light p-1 px-3 me-2" href="{% url 'home' %}">Volver</a>
+            <a class="btn btn-dark p-1 px-3 me-2" href="{% url 'crear_socio' %}">Nuevo</a>
+        </div>
+    </div>
 
+    <div class="mx-3">
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for socio in socios %}
+                    <tr>
+                        <th scope="row">{{socio.id}}</th>
+                        <td>{{socio.nombre}}</td>
+                        <td>{{socio.apellido}}</td>
+                        <td>{{socio.fecha_nacimiento | date:"d/m/Y"}}</td>
+                        <td>
+                            <a href="{% url 'modificar_socio' socio.id %}">
+                                <i class="bi bi-pencil-square me-2" style="color: #282d37"></i>
+                            </a>
+                            {% if socio.activo %}
+                                <a href="{% url 'desactivar_socio' socio.id %}">
+                                    <i class="bi bi-check-circle-fill me-2" style="color: green"></i>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'activar_socio' socio.id %}">
+                                    <i class="bi bi-x-circle-fill me-2" style="color: red"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{% url 'crear_socio' %}">Agregar Socio</a>
-    <br><br>
-
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Fecha de Nacimiento</th>
-			<th>Estado</th>
-            <th>Modificar</th>
-        </tr>
-        
-        {% for socio in socios %}
-			<tr>
-				<td>{{socio.id}}</td>
-				<td>{{socio.nombre}}</td>
-				<td>{{socio.apellido}}</td>
-				<td>{{socio.fecha_nacimiento | date:"d/m/Y"}}</td>
-                <td>
-                    {% if socio.activo %}
-                        <a href="{% url 'desactivar_socio' socio.id %}">Activo</a>
-                    {% else %}
-                        <a href="{% url 'activar_socio' socio.id %}">Inactivo</a>
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="{% url 'modificar_socio' socio.id %}">Editar</a>
-                </td>
-			</tr>
-        {% endfor %}
-    </table>
 {% endblock content %}
