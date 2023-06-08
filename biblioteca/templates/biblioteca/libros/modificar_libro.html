@@ -50,7 +50,7 @@
 								
 								<div class="form-outline mb-4">
 									<label class="form-label" for="autor">Autor:</label>
-									<select name="autor" id="autor">
+									<select class="form-select" name="autor" id="autor">
 										{% for autor in autores %}
 											<option value="{{ autor.id }}" {% if autor.id == libro.lib_autor_id %} selected {% endif %}>
 												{{ autor.nombre }} {{ autor.apellido }}
@@ -60,8 +60,8 @@
 								</div>
 								
 								<div class="form-outline mb-4">
-									<label class="form-label" for="activo">Activo:</label>
-									<input type="checkbox" name="activo" id="activo" {% if libro.lib_activo %}checked{% endif %}>
+									<label class="form-check-label" for="activo">Activo:</label>
+									<input type="checkbox" class="form-check-input" name="activo" id="activo" {% if libro.lib_activo %}checked{% endif %}>
 								</div>
 
                                 <div class="text-center">
