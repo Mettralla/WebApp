@@ -4,56 +4,62 @@
 
 {% block content %}
 
-    <div class="row vh-100">
-        <div class="col-lg-3" style="background-color: #DEDEDE;"></div>
-        <div class="col-lg-6 shadow">
+<div class="row vh-100">
+
+    <div class="col-lg-3" style="background-color: #DEDEDE;"></div>
+
+    <div class="col-lg-6 shadow-lg p-3">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="card" style="margin-top: 15vh">
                         <div class="card-header text-white" style="background-color: #282d37;">
                             <div class="row d-flex align-items-center ">
+
                                 <div class="col-6">
-                                <h5 class="mb-0">Nuevo Socio</h5>
+                                    <h5 class="mb-0">Nuevo Socio</h5>
                                 </div>
+
                                 <div class="col-6 text-end">
-                                <a class="btn btn-light p-2 px-3" href="{% url 'listado_socios' %}">Volver</a>
+                                    <a class="btn btn-light p-2 px-3" href="{% url 'listado_socios' %}">Volver</a>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
 
-                        <form method="post">
-                        {% csrf_token %}
+                            <form method="post">
+                            {% csrf_token %}
 
-                        <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required="" pattern="[a-zA-Z, ]+">
-                        </div>
-                        <br>
+                                <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required="" pattern="[a-zA-Z, ]+">
+                                </div>
+                                <br>
 
-                        <div class="form-group">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required="" pattern="[a-zA-Z, ]+">
-                        </div>
-                        <br>
+                                <div class="form-group">
+                                <label for="apellido">Apellido:</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" required="" pattern="[a-zA-Z, ]+">
+                                </div>
+                                <br>
 
-                        <div class="form-group">
-                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                                <div class="form-group">
+                                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-dark text-center">Guardar</button>
+                                </div>
+
+                            </form>
                         </div>
-                        <br>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-dark text-center">Guardar</button>
-                        </div>
-                    </form>
-                    </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3" style="background-color: #DEDEDE;"></div>
     </div>
+
+    <div class="col-lg-3" style="background-color: #DEDEDE;"></div>
+</div>
 
 {% endblock content %}
