@@ -111,27 +111,6 @@ Iniciar server
 ```bash
 python manage.py runserver
 ```
-
-## 🎈 Vista Previa <a name="preview"></a>
-
-Placeholder
-
-## ⛏️ Tecnologias <a name = "tech_stack"></a>
-
-- Django 4.2.1
-- asgiref 3.6.0
-- Jinja2 3.1.2
-- MarkupSafe 2.1.2
-- sqlparse 0.4.4
-- tzdata 2023.3
-
-## ✍️ Autores <a name = "authors"></a>
-- [Daniel Tejerina](https://github.com/Mettralla)
-- [Hernan Fresco](https://github.com/frescoh)
-- [Mercedes del Pilar Toledo](https://github.com/PilarToledoMT)
-- [Rodrigo Gonza](https://github.com/rodrigonza92)
-
-***
 ## Api <a name = "api"></a>
 
 ### Descripción <a name = "description"></a>
@@ -179,3 +158,24 @@ Esta Api permite visualizar todos los autores y libros que la biblioteca ofrece,
     []
 
 ![Libro](https://drive.google.com/uc?export=view&id=1eYBeJZeREvIAPbNG6mpyV1qUTFdxJwxi)
+
+## 🎈 Vista Previa <a name="preview"></a>
+
+Placeholder
+
+## ⛏️ Tecnologias <a name = "tech_stack"></a>
+
+- Django 4.2.1
+- asgiref 3.6.0
+- Jinja2 3.1.2
+- MarkupSafe 2.1.2
+- sqlparse 0.4.4
+- tzdata 2023.3
+
+## ✍️ Autores <a name = "authors"></a>
+- [Daniel Tejerina](https://github.com/Mettralla)
+- [Hernan Fresco](https://github.com/frescoh)
+- [Mercedes del Pilar Toledo](https://github.com/PilarToledoMT)
+- [Rodrigo Gonza](https://github.com/rodrigonza92)
+
+***
