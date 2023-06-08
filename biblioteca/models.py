@@ -16,6 +16,9 @@ class Autor(models.Model):
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
+    
+    class Meta:
+        verbose_name_plural = 'Autores'
 
 class Socio(models.Model):
     """
