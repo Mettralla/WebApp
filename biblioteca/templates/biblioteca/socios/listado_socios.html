@@ -22,8 +22,9 @@
                     <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
-                    <th scope="col">Fecha de Nacimiento</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">Nacimiento</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Editar</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -34,18 +35,20 @@
                         <td>{{socio.apellido}}</td>
                         <td>{{socio.fecha_nacimiento | date:"d/m/Y"}}</td>
                         <td>
-                            <a href="{% url 'modificar_socio' socio.id %}">
-                                <i class="bi bi-pencil-square me-2" style="color: #282d37"></i>
-                            </a>
                             {% if socio.activo %}
                                 <a href="{% url 'desactivar_socio' socio.id %}">
-                                    <i class="bi bi-check-circle-fill me-2" style="color: green"></i>
+                                    <i class="bi bi-check-circle-fill link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-3"></i>
                                 </a>
                             {% else %}
                                 <a href="{% url 'activar_socio' socio.id %}">
-                                    <i class="bi bi-x-circle-fill me-2" style="color: red"></i>
+                                    <i class="bi bi-x-circle-fill link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-3"></i>
                                 </a>
                             {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'modificar_socio' socio.id %}">
+                                <i class="bi bi-pencil-square link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-2"></i>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
