@@ -187,4 +187,6 @@ Esta Api permite visualizar todos los autores y libros que la biblioteca ofrece,
     Status: 200 OK
     Content-Type: text/html; charset=utf-8
 
-![Libro](https://drive.google.com/uc?export=view&id=/1eYBeJZeREvIAPbNG6mpyV1qUTFdxJwxi)
+    []
+
+![Libro](https://drive.google.com/uc?export=view&id=1eYBeJZeREvIAPbNG6mpyV1qUTFdxJwxi)
