@@ -1,49 +1,68 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Libro</title>
-</head>
-<body>
+{% extends '../layout/base.html' %}
+
+{% block title %}Crear Libro{% endblock title %}
+
+{% block content %}
+
+    <a href="{% url 'listado_libros' %}">Lista de Libros</a>
+    <br>
+
     <form method="post">
-        {% csrf_token %}
-        <div>
-            <label for="titulo">Titulo:</label>
-            <input type="text" id="titulo" name="titulo" required>
-        </div>
+    {% csrf_token %}
 
-        <br>
+	<section class="intro">
+	  <div class="mask d-flex align-items-center h-100" style="background-color: #D6D6D6;">
+		<div class="container">
+		  <div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+			  <div class="card" style="border-radius: 1rem;">
+				<div class="card-body p-5 text-center">
 
-        <div>
-            <label for="descripcion">Descripcion:</label>
-            <input type="text" id="descripcion" name="descripcion" required>
-        </div>
+				  <div class="my-md-5 pb-5">
 
-        <br>
+					<h1 class="fw-bold mb-0">Agregar Libro</h1>
+                    <br>
 
-        <div>
-            <label for="isbn">ISBN:</label>
-            <input type="number" id="isbn" name="isbn" pattern="[0-9]*" required>
-        </div>
+					<i class="bi bi-book" style="font-size: 3rem"></i>
+                    <br>
+					
+					<div class="form-outline mb-4">
+					  <input type="text" id="titulo" name="titulo" required="" pattern="[a-zA-Z, ]+" class="form-control form-control-lg" />
+					  <label class="form-label" for="titulo">Titulo</label>
+					</div>
 
-        <br>
+					<div class="form-outline mb-4">
+					  <input type="text" id="descripcion" name="descripcion" required="" pattern="[a-zA-Z, ]+" class="form-control form-control-lg" />
+					  <label class="form-label" for="descripcion">Descripcion</label>
+					</div>
+					
+					<div class="form-outline mb-4">
+					  <input type="number" id="isbn" name="isbn" required="" pattern="[0-9]*" class="form-control form-control-lg" />
+					  <label class="form-label" for="isbn">ISBN</label>
+					</div>
+					
+					<div class="form-outline mb-4">
+						<label class="form-label" for="autor">Autor:</label>
+						<select name="autor" id="autor">
+							{% for autor in autores %}
+								{% if autor.activo %}
+									<option value="{{ autor.id }}">{{ autor.nombre }} {{ autor.apellido }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
 
-        <div>
-            <label for="autor">Autor:</label>
-            <select name="autor" id="autor">
-                {% for autor in autores %}
-                    {% if autor.activo %}
-                        <option value="{{ autor.id }}">{{ autor.nombre }} {{ autor.apellido }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-        </div>
+					<button class="btn btn-success btn-lg btn-rounded gradient-custom text-body px-3" type="submit">Guardar</button>
 
-        <br>
+				  </div>
 
-        <input type="submit" value="Guardar">
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
     </form>
-</body>
-</html>
+
+{% endblock content %}
