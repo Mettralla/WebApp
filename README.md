@@ -123,3 +123,68 @@ Placeholder
 - [Hernan Fresco](https://github.com/frescoh)
 - [Mercedes del Pilar Toledo](https://github.com/PilarToledoMT)
 - [Rodrigo Gonza](https://github.com/rodrigonza92)
+
+***
+# Api <a name = "title"></a>
+
+## Descripción <a name = "description"></a>
+
+Esta Api permite visualizar todos los autores y libros que la biblioteca ofrece, y además se puede visualizar el detalle de un libro, todo en formato JSON.
+
+## Instalación <a name = "getting_started"></a>
+
+-Crear entorno virtual `python -m venv env`
+
+-Activar entorno `env\Scripts\activate.bat`
+
+-Clonar el repositorio `git clone git@github.com:Mettralla/WebApp.git`
+
+-Ir al directorio del proyecto `cd WebApp`
+
+-Instalar dependencias `pip install -r requirements.txt`
+
+-Realizar migraciones `python manage.py migrate`
+
+## Ejecución <a name = "run_the_app"></a>
+
+-Iniciar server `python manage.py runserver`
+
+## URL de Acceso
+
+<http://127.0.0.1:8000/api>
+
+## Funcionalidades
+
+### Obtener el listado de autores de la BD.
+
+    -Método: GET
+    -Request: <http://127.0.0.1:8000/api/autores>
+    -Response: 
+    HTTP/1.1 200  Se muestra de manera exitosa una respuesta JSON que contiene un listado de autores con sus respectivos detalles.
+    Status: 200 OK
+    Content-Type: text/html; charset=utf-8
+
+![Listado de autores](https://drive.google.com/uc?export=view&id=1uakMClYRQe4vJszYN2_XJq8JD0ei9qMv)
+
+### Obtener el listado de libros de la BD.
+
+    -Método: GET
+    -Request: <http://127.0.0.1:8000/api/libros>
+    -Response: 
+    HTTP/1.1 200  Se muestra de manera exitosa una respuesta JSON que contiene un listado de libros con sus respectivos detalles.
+    Status: 200 OK
+    Content-Type: text/html; charset=utf-8
+
+![Listado de libros](https://drive.google.com/uc?export=view&id=1PD09VdREeYkYG5cAop58zjwz3AfcGGBY)
+
+### Obtener un libro del listado de libros de la BD.
+    
+    -Método: GET
+    -Parámetros: id (URL)
+    -Request: <http://127.0.0.1:8000/api/libros/libros/<int:id>>
+    -Response: 
+    HTTP/1.1 200  Se muestra de manera exitosa una respuesta JSON que contiene un libro con sus respectivos detalles.
+    Status: 200 OK
+    Content-Type: text/html; charset=utf-8
+
+![Libro](https://drive.google.com/uc?export=view&id=/1eYBeJZeREvIAPbNG6mpyV1qUTFdxJwxi)
