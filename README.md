@@ -18,6 +18,13 @@
     - [Modelo](#database)
     - [Requerimientos Tecnicos](#tech_req)
 - [Instalación/Ejecucion](#getting_started)
+- [Documentación Api](#api)
+    -[Descripción](#descripción)
+    -[URL de acceso](#url-de-acceso)
+    -[Funcionalidades](#funcionalidades)
+        -[Listado de Autores](#obtener-el-listado-de-autores-de-la-bd)
+        -[Listado de Libros](#obtener-el-listado-de-libros-de-la-bd)
+        -[Detalles de un Libro](#obtener-un-libro-del-listado-de-libros-de-la-bd)
 - [Vista Previa](#preview)
 - [Tecnologias](#tech_stack)
 - [Autor](#authors)
@@ -125,35 +132,17 @@ Placeholder
 - [Rodrigo Gonza](https://github.com/rodrigonza92)
 
 ***
-# Api <a name = "title"></a>
+## Api <a name = "api"></a>
 
-## Descripción <a name = "description"></a>
+### Descripción <a name = "description"></a>
 
 Esta Api permite visualizar todos los autores y libros que la biblioteca ofrece, y además se puede visualizar el detalle de un libro, todo en formato JSON.
 
-## Instalación <a name = "getting_started"></a>
-
--Crear entorno virtual `python -m venv env`
-
--Activar entorno `env\Scripts\activate.bat`
-
--Clonar el repositorio `git clone git@github.com:Mettralla/WebApp.git`
-
--Ir al directorio del proyecto `cd WebApp`
-
--Instalar dependencias `pip install -r requirements.txt`
-
--Realizar migraciones `python manage.py migrate`
-
-## Ejecución <a name = "run_the_app"></a>
-
--Iniciar server `python manage.py runserver`
-
-## URL de Acceso
+### URL de Acceso <a name = "url_api"></a>
 
 <http://127.0.0.1:8000/api>
 
-## Funcionalidades
+## Funcionalidades <a name = "functions_api"></a>
 
 ### Obtener el listado de autores de la BD.
 
