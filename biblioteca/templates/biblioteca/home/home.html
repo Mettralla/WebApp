@@ -1,21 +1,22 @@
 {% extends '../layout/base.html' %}
+{% load static %}
 
 {% block title %}Mi Libreria{% endblock title %}
 
 {% comment %} AGREGO ESTE PLACEHOLDER PARA LINKEAR EL LOGO DEL NAV {% endcomment %}
 
 {% block content %}
-    <div class="row vh-90 d-flex align-items-center justify-content-center" style="margin: 25vh 25vh 25vh 25vh">
+<div class="row vh-90 d-flex align-items-center justify-content-center" style="margin: 15vh 2vh 18vh 2vh">
     <div class="col-md-6">
-            <h2>Mi</h2>
+            <h1>Mi</h1>
             <h1>Biblioteca</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum quam a efficitur finibus.</p>
-            <button class="btn btn-primary">Botón 1</button>
-            <button class="btn btn-secondary">Botón 2</button>
+            <p style="font-size: 18px">¡Bienvenido a Mi Biblioteca, tu aliada perfecta para gestionar todo en un solo lugar! <br> Registra fácilmente los libros de tu biblioteca, así como un control detallado de tus <br> empleados, socios y todos los préstamos realizados.</p>
+            <a class="btn btn-outline-dark px-5" href="{% url 'listado_libros' %}" >Ver Libros</a>
+            <a class="btn btn-dark px-5" href="{% url 'crear_prestamo' %}">Hacer Prestamo</a>
     </div>
 
     <div class="col-md-6">
-        <img src="" alt="Imagen de la biblioteca">
+        <img src="{% static 'img/home-img.png' %}" class="img-fluid" alt="Home" >
     </div>
 </div>
 {% endblock content %}
