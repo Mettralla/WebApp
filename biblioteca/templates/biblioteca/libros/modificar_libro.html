@@ -32,13 +32,15 @@
 
                                 <div class="form-group">
                                     <label for="titulo">Titulo:</label>
+                                    {% comment %} No limitar a solo letras, un titulo puede tener letras y numeros. ex: Trampa 22 {% endcomment %}
                                     <input type="text" class="form-control" id="titulo" name="titulo" value='{{libro.lib_titulo}}' required="">
                                 </div>
                                 <br>
 
                                 <div class="form-group">
                                     <label for="descripcion">Descripcion:</label>
-                                    <input type="text" class="form-control" id="descripcion" name="descripcion" value='{{libro.lib_descripcion}}' required="" pattern="[a-zA-Z, ]+">
+                                    {% comment %} No limitar a solo letras, una descripcion puede tener letras y numeros. {% endcomment %}
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion" value='{{libro.lib_descripcion}}' required="">
                                 </div>
                                 <br>
 
